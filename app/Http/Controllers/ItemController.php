@@ -7,10 +7,12 @@ use App\Models\Item;
 
 class ItemController extends Controller
 {
-public function show(Item $item)
-{
-return view ('item.show',[
-'item' => $item]);
+    public function show(Item $item)
+    {
+    return view ('item.show',[
+    'item'      => $item,
+    'reviews'   => $item->reviews()
+    ]);
 }
 
 }
