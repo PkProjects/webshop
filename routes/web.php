@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//-- I T E M S
+Route::resource('/item', 'App\Http\Controllers\ItemController');
+
 
 // -- U S E R S
 Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
