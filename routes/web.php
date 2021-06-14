@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+
+// -- U S E R S
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
+Route::get('/user/{user}', [\App\Http\Controllers\UserController::class, 'info']);
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'show']);
+Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'edit']);
+Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
+Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

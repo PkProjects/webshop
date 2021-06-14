@@ -24,7 +24,7 @@ class ItemFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'price' => $this->faker->numberBetween(0,10),
-            'summary' => 5,
+            'summary' => $this->faker->sentence(30),
             'category_id' => 1,
             'image' => 'whatever',
             'supply' => true,
