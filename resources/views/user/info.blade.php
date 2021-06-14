@@ -20,12 +20,12 @@
                     </div>
                     <div class="col-8">
                         <p>These are their comments:</p>
-                    @if( isset($user->comments) )
-                    @foreach($user->comments as $comment)
+                    @if( isset($user->reviews) )
+                    @foreach($user->reviews as $review)
                     <ul>
-                    @if($comment->blogPost != null)
+                        @if($comment->blogPost != null)
                         <li><b><a href="/blog/{{$comment->blogPost->id}}">{{ $comment->blogPost->title }}</a></b></li>
-                        <li>{{ $comment->body }}</li>
+                        <li>{{ $review->review }}</li>
                         @endif
                     </ul>
                     @endforeach
