@@ -37,4 +37,12 @@ Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'edit'
 Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
 
+// -- O R D E R S
+Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index']);
+Route::get('/order/{order}', [\App\Http\Controllers\OrderController::class, 'info']);
+Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'show']);
+Route::get('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'edit']);
+Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'update']);
+Route::delete('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'destroy']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
