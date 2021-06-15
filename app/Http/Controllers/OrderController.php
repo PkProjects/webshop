@@ -25,10 +25,10 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $order->update([
-            'name' => $request->name,
-            'adress' => $request->adress,
+            'item_array' => $request->item_array,
+            'total_cost' => $request->total_cost,
             'phone_number' => $request->phone_number,
-            'email' => $request->email
+            'processed' => $request->processed
         ]);
 
         return redirect('/users/');   
