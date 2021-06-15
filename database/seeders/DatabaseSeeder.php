@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Item::factory(30)->create();
         \App\Models\Order::factory(10)->create();
         \App\Models\Review::factory(10)->create();
+        $this->call(PermissionSeeder::class);
     }
 }
