@@ -2,6 +2,6 @@
 
 @section('content')
 
-A single category
+A single category and its items
 
 @endsection
