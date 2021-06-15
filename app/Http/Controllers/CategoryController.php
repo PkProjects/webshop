@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
     return view ('category.show',[
     'category'  => $category,
-    'items'     => $category->items()
+    'items'     => $category->items(),
     ]);
     }
 
