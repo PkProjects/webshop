@@ -24,8 +24,18 @@
 
                             <div class="control-group col-12 mt-2">
                                 <label for="email">User Email</label>
-                                <textarea id="email" class="form-control" name="email" placeholder="Enter Email"
-                                          rows="5" required>{{ $user->email }}</textarea>
+                                <input type id="email" class="form-control" name="email" placeholder="Enter Email"
+                                          value="{{ $user->email }}" required>
+                            </div>
+                            <div class="control-group col-12 mt-2">
+                                <label for="adress">User Adress</label>
+                                <textarea id="adress" class="form-control" name="adress" placeholder="Enter Adress"
+                                          rows="2" required>{{ $user->adress }}</textarea>
+                            </div>
+                            <div class="control-group col-12 mt-2">
+                                <label for="phone_number"> Phone Number</label>
+                                <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="Enter Phone Number"
+                                          value="{{ $user->phone_number }}" required>
                             </div>
                         </div>
                         <div class="row mt-2">
