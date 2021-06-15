@@ -37,23 +37,31 @@
         <h2 class="mb-3">Reviews</h2>
     </div>
 
-        @foreach ($item->reviews as $review)
+    @foreach ($item->reviews as $review)
 
-        <div class="row mb-2">
+            @if ( isset($review->user) )
 
             <div>By {{ $review->user->name }}</div>
             <div>{{ date("d/m/Y", strtotime($review->created_at)) }}</div>
-
             <div>&#10133; {{ $review->pros }}</div>
             <div class="mb-4">&#10134; {{ $review-> cons }}</div>
-
             <p>{{ $review->review }}</p>
-
             <div>Rating: {{ $review->rating}} out of 5</div>
 
-        </div>
+            @else
+
+            <p> No reviews yet, click here to write one. </p>
+
+            @endif
 
         @endforeach
+
+        
+
+      
+
+
+
 
 </div>
 
