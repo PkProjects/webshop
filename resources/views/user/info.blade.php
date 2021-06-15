@@ -8,6 +8,8 @@
                         <h1 class="display-one">You are looking at {{ $user->name }}  </h1>
                         <p>Their email adress is {{ $user->email }} </p>
                         <p>Their user ID is {{ $user->id }}</p>
+                        <p>Their adress is {{ $user->adress }}</p>
+                        <p>Their phone number is {{ $user->phone_number }}</p>
                         <p>These are their orders:</p>
                     @if( isset($user->orders) )
                     @foreach($user->orders as $order)
