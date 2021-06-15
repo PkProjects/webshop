@@ -23,6 +23,11 @@ Auth::routes();
 //-- I T E M S
 Route::resource('/item', 'App\Http\Controllers\ItemController');
 
+//-- C A T E G O R I E S
+
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/category/{category}', [\App\Http\Controllers\CategoryController::class, 'show']);
+
 
 // -- U S E R S
 Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
