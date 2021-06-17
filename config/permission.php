@@ -2,19 +2,28 @@
 
 return [
 
+    // These roles are added to the database
+    //  add roles as much as you like
     'user_roles'    => [
-        1       => 'SUPER_ADMIN',
-        2       => 'ADMIN',
-        3       => 'CONTENT_MANAGER',
-        4       => 'EMPLOYER',
-        5       => 'JOB_SEEKER',
+        1       => 'SUPER_ADMIN',   // has access to all parts of your app
+        2       => 'ADMIN',         // not defined yet
+        3       => 'CUSTOMER',      // not defined yet
     ],
+
+    // You can see this array as a list of controllers
+    //  user = UserController
+    //  product = ProductController
+    //  etc...
     'app_permissions' => [
         'user',
-        'signup',
-        'setting',
-        'order'
+        'product',
+        'category',
+        'order',
+        'invoice',
     ],
+
+    // This a list of CRUDS where 'show' is whether a loged in user 
+    //  as access to a list of users, products, categories etc. etc.
     'app_cruds' => [
         'show',
         'create',
@@ -22,6 +31,9 @@ return [
         'update',
         'delete',
     ],
+
+    // -----------------------------------------------------------
+    // Code below comes from Spatie Permissions, don't change this
 
     'models' => [
 
