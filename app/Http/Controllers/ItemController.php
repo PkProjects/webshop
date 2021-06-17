@@ -15,4 +15,23 @@ class ItemController extends Controller
     ]);
 }
 
+    public function edit(Item $item)
+    {
+        return view ('item.edit',[
+            'item' => $item,
+        ]);
+    }
+
+    public function update(Request $request, Item $item)
+    {
+        $item->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'summary' => $request->summary,
+            'supply' => $request->supply
+        ]);
+
+        return redirect(route('item.show', $item));   
+    }
+
 }

@@ -16,4 +16,11 @@ class Item extends Model
     public function reviews(){
         return $this->hasMany(Review::class);
     }
+
+    protected $fillable = [
+        'name',
+        'price',
+        'summary',
+        'supply',
+    ];
 }
