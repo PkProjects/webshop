@@ -7,6 +7,18 @@
                     <div class="col-8">
                         <h1 class="display-one">You are logged in as {{ Auth::user()->name }}  </h1>
                         <p>Your user ID is {{ Auth::user()->id }}</p>
+
+                        <p> Shopcart </p>
+                        @if( session('cart') !== 'null' )
+                        @foreach( session('cart') as $cartItem)
+                        @foreach( $cartItem as $itemId => $amount)
+                        <p> Id: {{$itemId}}</p>
+                        <p> Amount: {{$amount}}</p>
+                        @endforeach
+                        @endforeach
+                        @endif
+
+
                         @if( Auth::user()->can('order.info') )
                             <p>You're an admin!</p>
                             @forelse($orders as $order)
