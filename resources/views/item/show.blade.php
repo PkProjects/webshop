@@ -41,12 +41,12 @@
 
             @if ( isset($review->user) )
 
-            <div>By {{ $review->user->name }}</div>
-            <div>{{ date("d/m/Y", strtotime($review->created_at)) }}</div>
+            <!-- link to user profile -->
+            <div class="mb-2">By {{ $review->user->name }} | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
             <div>&#10133; {{ $review->pros }}</div>
-            <div class="mb-4">&#10134; {{ $review-> cons }}</div>
+            <div class="mb-2">&#10134; {{ $review-> cons }}</div>
             <p>{{ $review->review }}</p>
-            <div>Rating: {{ $review->rating}} out of 5</div>
+            <div class="mb-5">Rating: {{ $review->rating}} out of 5</div>
 
             @else
 
