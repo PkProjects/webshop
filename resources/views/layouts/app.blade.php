@@ -33,7 +33,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Categories
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/categories">All categories</a>
+                                <a class="dropdown-item" href="{{ route('category.show', 1)}}">Category 1</a>
+                                <a class="dropdown-item" href="{{ route('category.show', 2)}}">Category 2</a>
+                                <a class="dropdown-item" href="{{ route('category.show', 3)}}">Category 3</a>
+                                <a class="dropdown-item" href="{{ route('category.show', 4)}}">Category 4</a>
+                                <a class="dropdown-item" href="{{ route('category.show', 5)}}">Category 5</a>
+                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Sale items</a>
+                        </li>   
                     </ul>
 
                     <!-- Right Side Of Navbar -->
