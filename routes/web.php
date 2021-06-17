@@ -22,6 +22,7 @@ Auth::routes();
 
 //-- I T E M S
 Route::resource('/item', 'App\Http\Controllers\ItemController');
+Route::put('/addtocart/{item}', [\App\Http\Controllers\ItemController::class, 'addToCart'])->name('item.cart');
 
 //-- C A T E G O R I E S
 
