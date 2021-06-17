@@ -44,17 +44,14 @@ class PermissionSeeder extends Seeder
             }
             
             // Add only one user that has role 'SUPER_ADMIN'
+            // 'remember_token'    => Str::random(10),
             $user = \App\Models\User::factory()->create([
-                'first_name'        => 'Toby',
-                'last_name'         => 'Versteeg',
-                'nick_name'         => 'Toob',
-                'email'             => 'toby@codegorilla.nl',
-                'date_of_birth'     => '1970-05-17',
-                'email_verified_at' => now(),
+                'name'        => 'Admin',
+                'email'             => 'admin@admin.com',
+                //'date_of_birth'     => '1970-05-17',
+                //'email_verified_at' => now(),
                 'password'          => bcrypt('password'),
-                'remember_token'    => Str::random(10),
-                'postal_code'       => '9713 MR',
-                'created_by'        => 1,
+                'adress'       => '9713 MR',
             ]);
             
             $user->assignRole('SUPER_ADMIN');
