@@ -15,6 +15,14 @@ class OrderController extends Controller
         ]);   
     }
 
+    public function show(Order $order)
+    {
+        $orders = Order::all();
+        return view('order.info', [
+            'orders' => $orders
+        ]);    
+    }
+
     /**
      * Update the specified resource in storage.
      *
