@@ -43,6 +43,7 @@ Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'show'])->n
 Route::get('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
 Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'update']);
 Route::delete('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'destroy']);
+Route::post('/finishorder', [\App\Http\Controllers\OrderController::class, 'finish'])->name('order.finish');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
