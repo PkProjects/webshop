@@ -9,13 +9,13 @@
                         <p>Your user ID is {{ Auth::user()->id }}</p>
 
                         <p> Shopcart </p>
-                        @if( session('cart') !== 'null' )
-                        @foreach( session('cart') as $cartItem)
-                        @foreach( $cartItem as $itemId => $amount)
-                        <p> Id: {{$itemId}}</p>
-                        <p> Amount: {{$amount}}</p>
-                        @endforeach
-                        @endforeach
+                        @if( session('cart') !== null )
+                            @foreach( session('cart') as $cartItem)
+                                @foreach( $cartItem as $itemId => $amount)
+                                    <p> Id: {{$itemId}}</p>
+                                    <p> Amount: {{$amount}}</p>
+                                @endforeach
+                            @endforeach
                         @endif
 
 
