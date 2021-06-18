@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use Exception;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -65,5 +66,21 @@ class ItemController extends Controller
 
         return redirect(route('category.show', $item->category_id))
         ->with('success','Item deleted successfully');
+    }
+
+    public function create(Item $item){
+
+        $categories = DB::table('categories')->get(['id', 'name']);
+
+        return view('item.create');
+    }
+
+    public function store(Request $request){
+        $item = Item::create([
+            'name'      => $request->name,
+            'price'     => $request->price,
+            'summary'   => $request->summary,
+            'category'  => $request->category
+        ]);
     }
 }
