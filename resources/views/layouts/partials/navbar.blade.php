@@ -55,11 +55,22 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('user.show') }}">
+                            
+                        @if( Auth::user()->can('users.show') )
+                            <a class="dropdown-item" href="{{ route('users.show') }}">
                                 {{ __('Users') }}
                             </a> 
+                        @endif
+
+                        @if( Auth::user()->can('order.show') )
                             <a class="dropdown-item" href="{{ route('order.show') }}">
                                 {{ __('Orders') }}
+                            </a>
+                        @endif
+
+
+                            <a class="dropdown-item" href="{{ route('user.show', auth()->user()->id) }}">
+                                {{ __('Profile') }}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"

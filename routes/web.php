@@ -30,8 +30,8 @@ Route::resource('/category', 'App\Http\Controllers\CategoryController');
 
 // -- U S E R S
 Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
-Route::get('/user/{user}', [\App\Http\Controllers\UserController::class, 'info']);
-Route::get('/users', [\App\Http\Controllers\UserController::class, 'show'])->name('user.show');
+Route::get('/user/{user}', [\App\Http\Controllers\UserController::class, 'info'])->name('user.show');
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
 Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'edit']);
 Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
