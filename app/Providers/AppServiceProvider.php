@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $view->with([
-                '_categories' => Category::all(['id', 'name'])
+                '_categories' => Category::all(['id', 'name']),
+                '_shopcart' => session('cart')
             ]);
 
         });

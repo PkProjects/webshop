@@ -31,4 +31,20 @@ class CartController extends Controller
             ]);
         }
     }
+
+    public function show()
+    {
+        $cart = session('cart');
+        $cartArray = [];
+        foreach($cart as $item){
+            foreach($item as $id => $amount){
+                $cartArray[] = Item::where('id', $id)->get();
+            };
+        };
+
+        return view('cart.show', [
+            'cartArray' => $cartArray
+        ]);    
+    }
+
 }
