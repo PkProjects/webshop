@@ -56,4 +56,25 @@
 
 </div>
 
+<script>
+            function addToCart(itemId){
+                //let item = {!! json_encode($item) !!};
+                let cartButton = document.getElementById('cartButton'+itemId);
+                axios({
+                    url: cartButton.getAttribute('route'),
+                    method: 'PUT',
+                    data: {
+                        item: cartButton.getAttribute('item')
+                    }
+                }).then(function(response) {
+                    if (response.data.succes === true) {
+                        console.log('yay!');
+                    } else {
+                        console.log('whydoesthisrun');
+                    }
+                }).catch(function(response) {
+                    alert(response.data.message)
+                })
+            }
+</script>
 @endsection
