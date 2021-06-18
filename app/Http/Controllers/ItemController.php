@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Exception;
@@ -68,19 +69,23 @@ class ItemController extends Controller
         ->with('success','Item deleted successfully');
     }
 
-    public function create(Item $item){
-
-        $categories = DB::table('categories')->get(['id', 'name']);
+    public function create(){
 
         return view('item.create');
     }
 
-    public function store(Request $request){
-        $item = Item::create([
-            'name'      => $request->name,
-            'price'     => $request->price,
-            'summary'   => $request->summary,
-            'category'  => $request->category
+    public function store(Request $request, Item $item){
+        Item::create([
+            'name'          => $request->name,
+            'price'         => $request->price,
+            'summary'       => $request->summary,
+            'category_id'   => $request->category_id,
+            'image'         => $request->image,
+            'supply'        => $request->supply,
+            'properties'    => $request->properties
         ]);
+
+    return redirect(route('category.index'))
+    ->with('success','Item added successfully');
     }
 }
