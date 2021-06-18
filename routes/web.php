@@ -48,3 +48,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // -- S H O P P I N G C A R T
 Route::put('/addtocart/{item}', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('item.cart');
+Route::get('/cart', [\App\Http\Controllers\CartController::class, 'show'])->name('cart.show');
