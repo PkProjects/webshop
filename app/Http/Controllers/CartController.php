@@ -36,11 +36,13 @@ class CartController extends Controller
     {
         $cart = session('cart');
         $cartArray = [];
-        foreach($cart as $item){
-            foreach($item as $id => $amount){
-                $cartArray[] = Item::where('id', $id)->get();
+        if($cart != null){
+            foreach($cart as $item){
+                foreach($item as $id => $amount){
+                    $cartArray[] = Item::where('id', $id)->get();
+                };
             };
-        };
+        }
 
         return view('cart.show', [
             'cartArray' => $cartArray
@@ -48,8 +50,16 @@ class CartController extends Controller
     }
 
     public function delete(Request $request, $index){
-        $test = $request->session()->pull('cart.' . $index);
-        //dd($test);
+        $tempArray = $request->session()->get('cart');
+        $i = 0;
+        $request->session()->forget('cart');
+        foreach($tempArray as $subArray){
+            if($i != $index)
+            {
+                $request->session()->push('cart', $subArray);
+            } 
+            $i++;
+        }
+        return redirect(route('cart.show'));
     }
-
 }
