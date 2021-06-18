@@ -22,8 +22,6 @@ Auth::routes();
 
 //-- I T E M S
 Route::resource('/item', 'App\Http\Controllers\ItemController');
-Route::put('/addtocart/{item}', [\App\Http\Controllers\ItemController::class, 'addToCart'])->name('item.cart');
-
 //-- C A T E G O R I E S
 
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
@@ -47,3 +45,6 @@ Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'up
 Route::delete('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'destroy']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// -- S H O P P I N G C A R T
+Route::put('/addtocart/{item}', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('item.cart');

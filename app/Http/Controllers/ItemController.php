@@ -11,12 +11,11 @@ class ItemController extends Controller
 {
     public function show(Item $item)
     {
-         dd(session('cart'));
-    return view ('item.show',[
-    'item'      => $item,
-    'reviews'   => $item->reviews()
-    ]);
-}
+        return view ('item.show',[
+            'item'      => $item,
+            'reviews'   => $item->reviews()
+        ]);
+    }
 
     public function edit(Item $item)
     {
