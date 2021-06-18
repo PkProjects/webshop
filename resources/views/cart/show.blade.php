@@ -9,17 +9,26 @@
                         <p>Your user ID is {{ Auth::user()->id }}</p>
 
                         <p> Shopcart </p>
-                        <?php $totalPrice = 0; ?>
+                        <?php $totalPrice = 0; $index = 0; ?>
                         @if( $cartArray !== null )
                             @foreach( $cartArray as $cartStuff)
+                            <p> {{$cartStuff}} </p>
                             @foreach( $cartStuff as $test)
                                 <ul>
                                     <li> Id: {{$test->id}}</li>
                                     <li> Name: {{$test->name}}</li>
                                     <li> Price: {{$test->price}}</li>
-                                </ul>
+                                <a href="{{route('cart.delete', $index)}}"> Remove from cart </a>
+
+                                <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger">Remove from cart</button>
+                                </form>
+                                </ul>      
                                 <?php $totalPrice += $test->price; ?>
                             @endforeach
+                            <?php $index++; ?>
                             @endforeach
                         @endif
 
