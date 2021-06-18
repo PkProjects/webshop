@@ -59,4 +59,11 @@ class ItemController extends Controller
             ]);
         }
     }
+
+    public function destroy(Item $item){
+        $item->delete();
+
+        return redirect(route('category.show', $item->category_id))
+        ->with('success','Item deleted successfully');
+    }
 }

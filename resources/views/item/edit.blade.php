@@ -35,8 +35,8 @@
                                 <label for="supply">Item supply</label>
                                 <p>Is the item in stock?</p>
                                 <select id="supply" name="supply" class="form-control" required>
-                                    <option value= "{{ $item->supply }}">True</option>
-                                    <option value= "{{ $item->supply }}">False</option>
+                                    <option value= "1">True</option>
+                                    <option value= "0">False</option>
                                 </select>
                             </div>
                         </div>
@@ -51,10 +51,10 @@
                 </div>
 
 
-                <form id="delete-frm" class="" action="" method="POST">
+                <form id="delete-frm" class="" action="{{ route('item.destroy', $item->id ) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-danger">Item</button>
+                    <button onclick="return confirm('Are you sure you want to delete this item?');" type="submit" class="btn btn-danger">Delete Item</button>
                 </form>
 
             </div>
