@@ -8,17 +8,15 @@
                         <h1 class="display-one">You are logged in as {{ Auth::user()->name }}  </h1>
                         <p>Your user ID is {{ Auth::user()->id }}</p>
 
-                        <p> Shopcart </p>
+                        <p> Current shopping cart </p>
                         <?php $totalPrice = 0; $index = 0; ?>
                         @if( $cartArray !== null )
                             @foreach( $cartArray as $cartStuff)
-                            <p> {{$cartStuff}} </p>
                             @foreach( $cartStuff as $test)
                                 <ul>
                                     <li> Id: {{$test->id}}</li>
                                     <li> Name: {{$test->name}}</li>
                                     <li> Price: {{$test->price}}</li>
-                                <a href="{{route('cart.delete', $index)}}"> Remove from cart </a>
 
                                 <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
                                     @method('DELETE')
