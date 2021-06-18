@@ -22,5 +22,8 @@ class Item extends Model
         'price',
         'summary',
         'supply',
+        'category_id',
+        'image',
+        'properties'
     ];
 }

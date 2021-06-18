@@ -5,11 +5,14 @@
 <div class="container">
     <div class="row">
         <h1 class="mb-3">{{ $item->name }}</h1>  
+        
+        @if(Auth::user()->id == 11)
         <a href="{{ route('item.edit', $item) }}">
             <button type="button" class="btn btn-light">
                 Edit item
             </button>
         </a>
+        @endif
 
     </div>
 
