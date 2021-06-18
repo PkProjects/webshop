@@ -4,9 +4,12 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="mb-3">{{ $item->name }}</h1>  <button type="button" class="btn btn-light">
-                <a href="{{ route('item.edit', $item) }}">Edit item</a>
+        <h1 class="mb-3">{{ $item->name }}</h1>  
+        <a href="{{ route('item.edit', $item) }}">
+            <button type="button" class="btn btn-light">
+                Edit item
             </button>
+        </a>
 
     </div>
 

@@ -35,8 +35,8 @@
                                 <label for="supply">Item supply</label>
                                 <p>Is the item in stock?</p>
                                 <select id="supply" name="supply" class="form-control" required>
-                                    <option value= "{{ $item->supply }}">True</option>
-                                    <option value= "{{ $item->supply }}">False</option>
+                                    <option value= "1">True</option>
+                                    <option value= "0">False</option>
                                 </select>
                             </div>
                         </div>
