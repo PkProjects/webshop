@@ -47,4 +47,9 @@ class CartController extends Controller
         ]);    
     }
 
+    public function delete(Request $request, $index){
+        $test = $request->session()->pull('cart.' . $index);
+        //dd($test);
+    }
+
 }
