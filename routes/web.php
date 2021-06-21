@@ -34,8 +34,8 @@ Route::resource('/review', 'App\Http\Controllers\ReviewController');
 
 // -- U S E R S
 Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);
-Route::get('/user/{user}', [\App\Http\Controllers\UserController::class, 'info']);
-Route::get('/users', [\App\Http\Controllers\UserController::class, 'show'])->name('user.show');
+Route::get('/user/{user}', [\App\Http\Controllers\UserController::class, 'info'])->name('user.show');
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
 Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'edit']);
 Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
@@ -47,6 +47,8 @@ Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'show'])->n
 Route::get('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
 Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'update']);
 Route::delete('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'destroy']);
+Route::post('/finishorder', [\App\Http\Controllers\OrderController::class, 'finish'])->name('order.finish');
+Route::put('/finishorder', [\App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

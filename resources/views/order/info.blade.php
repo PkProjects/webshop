@@ -12,8 +12,19 @@
                             <p>You're an admin!</p>
                             @forelse($orders as $order)
                                 <ul>
-                                    <li>{{ $order->id }}</li>
-                                    <li>{{ $order->item_array }}</li>
+                                    <li>Order ID: {{ $order->id }}</li>
+                                    @if(json_decode($order->item_array) !== null)
+                                    @foreach( json_decode($order->item_array) as $subArray)
+                                    @foreach( $subArray as $orderItem)
+                                    <li>Item ID: {{ $orderItem->id }}</li>
+                                    <li>Item Name: {{ $orderItem->name }}</li>
+                                    <li>Item Price: {{ $orderItem->price }}</li>
+                                    <br>
+                                    @endforeach
+                                    @endforeach
+                                    @endif
+                                    <li>Order price: {{ $order->total_cost }}</li>
+
                             <a href="{{ route('order.edit', $order->id)}}">-Edit Order-</a>
                                 </ul>
                             @empty

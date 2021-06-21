@@ -32,6 +32,12 @@
 
                         <p> Your total price is €<?= $totalPrice; ?>,- </p>
                         
+                        <form id="finish-order" class="" action="{{route('order.finish')}}" method="POST">
+                            
+                            @csrf
+                            <input type="hidden" name="item_array" value="{{json_encode($cartArray)}}">
+                            <button class="btn btn-warning">Complete information & Pay</button>
+                        </form>
                     </div>         
                 </div>       
             </div>

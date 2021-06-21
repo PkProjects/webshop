@@ -23,6 +23,16 @@ class OrderController extends Controller
         ]);    
     }
 
+    public function store(Request $request){
+        $order = Order::create([
+            'item_array'      => $request->item_array,
+            'user_id'      => $request->user_id,
+            'total_cost' => $request->total_cost,
+            'delivery_adress' => $request->delivery_adress,
+            'processed' => 0
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -35,7 +45,7 @@ class OrderController extends Controller
         $order->update([
             'item_array' => $request->item_array,
             'total_cost' => $request->total_cost,
-            'phone_number' => $request->phone_number,
+            'delivery_adress' => $request->delivery_adress,
             'processed' => $request->processed
         ]);
 
@@ -52,6 +62,14 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->delete();
+    }
+
+    public function finish(Request $request){
+        $order = $request->item_array;
+        //dd($order);
+        return view('order.finish', [
+            'item_array' => $order
+        ]);    
     }
 
 }
