@@ -30,7 +30,15 @@
                     </div>
                 <li class="nav-item">
                     <a class="nav-link" href="">Sale items</a>
-                </li>   
+                </li>
+                @guest
+                @else    
+                    @if(Auth::user()->id == 11)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('item.create') }}">Add new item</a>
+                        </li>
+                    @endif
+                @endguest   
             </ul>
 
             <!-- Right Side Of Navbar -->
