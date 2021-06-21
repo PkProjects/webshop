@@ -57,27 +57,23 @@
         <h2 class="mb-3">Reviews</h2>
     </div>
 
-    @foreach ($item->reviews->sortByDesc('created_at') as $review)
+    @forelse ($item->reviews->sortByDesc('created_at') as $review)
 
-            @if ( isset($review->user) )
-
-            <!-- link to user profile -->
-            <div class="mb-2">By {{ $review->user->name }} | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
-            <div>&#10133; {{ $review->pros }}</div>
-            <div class="mb-2">&#10134; {{ $review-> cons }}</div>
-            <p>{{ $review->review }}</p>
-            <div class="mb-5">Rating: {{ $review->rating}} out of 5</div>
-
-            @else
-
-            <p> No reviews yet, click here to write one. </p>
-
-            @endif
-
-        @endforeach
         
-        <p> No reviews yet, write one below. </p>
+        <div class="mb-2">By {{ $review->user->name }} | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
+        <div>&#10133; {{ $review->pros }}</div>
+        <div class="mb-2">&#10134; {{ $review-> cons }}</div>
+        <p>{{ $review->review }}</p>
+        <div class="mb-5">Rating: {{ $review->rating}} out of 5</div>
 
+    @empty
+
+        <p class="mb-5"> No reviews yet, write one below. </p>
+
+    @endforelse
+
+    <h2>Write a review:</h2>
+        
         <form action="{{route('review.store')}}" method="POST">
             @csrf
             @method('POST')
@@ -105,7 +101,7 @@
 
             <div class="control-group col-8 mt-2 mb-2">
                 <label for="review">Review</label>
-                <textarea id="review" class="form-control" name="review" placeholder="Write you review"
+                <textarea id="review" class="form-control" name="review" placeholder="Write your review"
                             rows="4" required></textarea>
             </div>
 

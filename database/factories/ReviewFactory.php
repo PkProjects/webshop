@@ -22,7 +22,7 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(0,5),
+            'user_id' => $this->faker->numberBetween(1,5),
             'item_id' => $this->faker->numberBetween(0,5),
             'review' => $this->faker->sentence(20),
             'rating' => 5,
