@@ -59,13 +59,8 @@
 
     @forelse ($item->reviews->sortByDesc('created_at') as $review)
 
-        <!-- It seems like not all users have a name, so without this conditional forelse loop will fail -->
-        @if ( isset($review->user) )
-
+        
         <div class="mb-2">By {{ $review->user->name }} | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
-        
-        @endif
-        
         <div>&#10133; {{ $review->pros }}</div>
         <div class="mb-2">&#10134; {{ $review-> cons }}</div>
         <p>{{ $review->review }}</p>
@@ -73,9 +68,11 @@
 
     @empty
 
-        <p> No reviews yet, write one below: </p>
+        <p class="mb-5"> No reviews yet, write one below. </p>
 
     @endforelse
+
+    <h2>Write a review:</h2>
         
         <form action="{{route('review.store')}}" method="POST">
             @csrf
