@@ -26,6 +26,7 @@ class OrderController extends Controller
     public function store(Request $request){
         $order = Order::create([
             'item_array'      => $request->item_array,
+            'user_id'      => $request->user_id,
             'total_cost' => $request->total_cost,
             'delivery_adress' => $request->delivery_adress,
             'processed' => 0

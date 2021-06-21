@@ -31,6 +31,8 @@
                                 @endforeach
                             @endforeach
                             <input type="hidden" name="item_array" id="item_array" value="{{$item_array}}">
+                            <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
+                            <input type="hidden" name="total_cost" id="total_cost" value="5">
                             </div>
                             <div class="control-group col-12 mt-2">
                                 <label for="delivery_adress">Delivery Adress</label>
