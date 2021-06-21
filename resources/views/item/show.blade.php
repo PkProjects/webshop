@@ -3,7 +3,15 @@
 @section('content')
 
 <div class="container">
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('success') !!}</li>
+            </ul>
+        </div>
+        @endif
     <div class="row">
+
         <h1 class="mb-3">{{ $item->name }}</h1>  
         
         @if(Auth::user()->id == 11)
@@ -49,7 +57,7 @@
         <h2 class="mb-3">Reviews</h2>
     </div>
 
-    @foreach ($item->reviews as $review)
+    @foreach ($item->reviews->sortByDesc('created_at') as $review)
 
             @if ( isset($review->user) )
 
@@ -67,7 +75,62 @@
             @endif
 
         @endforeach
+        
+        <p> No reviews yet, write one below. </p>
 
+        <form action="{{route('review.store')}}" method="POST">
+            @csrf
+            @method('POST')
+        <div class="row">
+            <div class="control-group col-8">
+                <label for="user_id">Reviewing as {{ Auth::user()->name }} </label>
+                <input type="hidden" id="user_id" class="form-control" name="user_id"
+                        value="{{Auth::user()->id}}">
+                <input type="hidden" id="item_id" class="form-control" name="item_id"
+                        value="{{$item->id}}">
+            </div>
+
+            <div class="control-group col-8 mt-2 mb-2">
+                <label for="pros">Pros</label>
+                <input type="text" id="pros" class="form-control" name="pros" placeholder="What are the pros?"
+                            rows="4" required>
+                </input>
+            </div>
+            <div class="control-group col-8 mt-2 mb-2">
+                <label for="cons">Cons</label>
+                <input type="text" id="cons" class="form-control" name="cons" placeholder="What are the cons?"
+                            rows="4" required>
+                </input>
+            </div>
+
+            <div class="control-group col-8 mt-2 mb-2">
+                <label for="review">Review</label>
+                <textarea id="review" class="form-control" name="review" placeholder="Write you review"
+                            rows="4" required></textarea>
+            </div>
+
+            <div class="control-group col-8 mt-2 mb-2">
+                <label for="rating">Rating</label>
+                <select id="rating" class="form-control" name="rating" placeholder="Rate the item"
+                            rows="4" required>
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="1">3</option>
+                    <option value="1">4</option>
+                    <option value="1">5</option>
+                </select>
+            </div>
+
+          
+        </div>
+        <div class="row mt-2">
+            <div class="control-group col-8">
+                <button id="btn-submit" class="btn btn-primary">
+                    Post Review
+                </button>
+            </div>
+        </div>
+    </form>
         
 
       
