@@ -31,6 +31,8 @@ class OrderController extends Controller
             'delivery_adress' => $request->delivery_adress,
             'processed' => 0
         ]);
+
+        $request->session()->forget('cart');
     }
 
     /**
