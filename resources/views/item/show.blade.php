@@ -60,19 +60,34 @@
     @forelse ($item->reviews->sortByDesc('created_at') as $review)
 
         
-        <div class="mb-2">By {{ $review->user->name }} | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
+        <div class="mb-2">By <b>{{ $review->user->name }}</b> | {{ date("d/m/Y", strtotime($review->created_at)) }}</div>
         <div>&#10133; {{ $review->pros }}</div>
         <div class="mb-2">&#10134; {{ $review-> cons }}</div>
         <p>{{ $review->review }}</p>
         <div class="mb-5">Rating: {{ $review->rating}} out of 5</div>
-
+        @if ($review->user->id === Auth::user()->id)
+            @php $item->reviewed = true @endphp
+        @endif
     @empty
 
-        <p class="mb-5"> No reviews yet, write one below. </p>
+        <p class="mb-3"> No reviews yet, be the first to write one. </p>
 
     @endforelse
+    
+    @if ($item->reviewed == false)
+        <a class="btn btn-warning mb-4" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Click to write a review
+        </a>
+    @else
+        You have already reviewed this item.
+    @endif
+   
+    
 
-    <h2>Write a review:</h2>
+    <div class="collapse" id="reviewform">
+        <div class="card card-body">
+            <div class="form-content px-4 py-2">
+        <h2>Review for {{ $item->name }}:</h2>
         
         <form action="{{route('review.store')}}" method="POST">
             @csrf
@@ -105,10 +120,11 @@
                             rows="4" required></textarea>
             </div>
 
-            <div class="control-group col-8 mt-2 mb-2">
+            <div class="control-group col-8 mt-2 mb-3">
                 <label for="rating">Rating</label>
                 <select id="rating" class="form-control" name="rating" placeholder="Rate the item"
                             rows="4" required>
+                    <option value="none" selected disabled hidden>Choose your rating out of 5</option>
                     <option value="1">1</option>
                     <option value="1">2</option>
                     <option value="1">3</option>
@@ -116,8 +132,6 @@
                     <option value="1">5</option>
                 </select>
             </div>
-
-          
         </div>
         <div class="row mt-2">
             <div class="control-group col-8">
@@ -127,6 +141,10 @@
             </div>
         </div>
     </form>
+</div>
+    </div>        
+</div>
+   
         
 
       

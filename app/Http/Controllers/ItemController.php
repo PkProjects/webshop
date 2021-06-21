@@ -88,4 +88,5 @@ class ItemController extends Controller
     return redirect(route('category.index'))
     ->with('success','Item added successfully');
     }
+    public $reviewed = false;
 }
