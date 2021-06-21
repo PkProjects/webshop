@@ -33,6 +33,7 @@ class OrderController extends Controller
         ]);
 
         $request->session()->forget('cart');
+        return redirect('/user/'. auth()->user()->id);   
     }
 
     /**

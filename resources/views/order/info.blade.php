@@ -12,7 +12,7 @@
                             <p>You're an admin!</p>
                             @forelse($orders as $order)
                                 <ul>
-                                    <li>Order ID: {{ $order->id }}</li>
+                                    <li><b>Order ID: {{ $order->id }}</b></li>
                                     @if(json_decode($order->item_array) !== null)
                                     @foreach( json_decode($order->item_array) as $subArray)
                                     @foreach( $subArray as $orderItem)

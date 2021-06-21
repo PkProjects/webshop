@@ -18,6 +18,7 @@
                     @foreach($user->orders as $order)
                     <ul>
                         <li><b>Order id : {{ $order->id }}</b></li>
+                        <li><b>Order price : {{ $order->total_cost }}</b></li>
 
 
                         @if(json_decode($order->item_array) !== null)
