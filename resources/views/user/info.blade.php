@@ -11,11 +11,26 @@
                         <p>Their adress is {{ $user->adress }}</p>
                         <p>Their phone number is {{ $user->phone_number }}</p>
                         <p>These are their orders:</p>
+
+
+
                     @if( isset($user->orders) )
                     @foreach($user->orders as $order)
                     <ul>
                         <li><b>Order id : {{ $order->id }}</b></li>
-                        <li>{{ $order->item_array }}</li>
+
+
+                        @if(json_decode($order->item_array) !== null)
+                            @foreach( json_decode($order->item_array) as $subArray)
+                            @foreach( $subArray as $orderItem)
+                            <li>Item ID: {{ $orderItem->id }}</li>
+                            <li>Item Name: {{ $orderItem->name }}</li>
+                            <li>Item Price: {{ $orderItem->price }}</li>
+                            <br>
+                            @endforeach
+                            @endforeach
+                        @endif
+
                         <li> Order processed:
                         @if($order->processed == 1)
                         YES
