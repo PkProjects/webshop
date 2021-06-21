@@ -24,8 +24,11 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
-        $item = Order::create([
+        $order = Order::create([
             'item_array'      => $request->item_array,
+            'total_cost' => $request->total_cost,
+            'delivery_adress' => $request->delivery_adress,
+            'processed' => 0
         ]);
     }
 
@@ -41,7 +44,7 @@ class OrderController extends Controller
         $order->update([
             'item_array' => $request->item_array,
             'total_cost' => $request->total_cost,
-            'phone_number' => $request->phone_number,
+            'delivery_adress' => $request->delivery_adress,
             'processed' => $request->processed
         ]);
 

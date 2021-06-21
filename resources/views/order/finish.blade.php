@@ -26,13 +26,14 @@
                             @foreach( json_decode($item_array) as $subArray )
                                 @foreach( $subArray as $item)
                                     <label for="item_array">Item {{$item->id}}: {{$item->name}}, Price : {{$item->price}}</label>
-                                    <input type="text" id="item_array" class="form-control" name="item_array"
+                                    <input type="text" id="quantity" class="form-control" name="quantity"
                                         placeholder="Order" value="QUANTITY" required>
                                 @endforeach
                             @endforeach
+                            <input type="hidden" name="item_array" id="item_array" value="{{$item_array}}">
                             </div>
                             <div class="control-group col-12 mt-2">
-                                <label for="delivery_adress">Adress</label>
+                                <label for="delivery_adress">Delivery Adress</label>
                                 <textarea id="delivery_adress" class="form-control" name="delivery_adress" placeholder="Enter adress"
                                           rows="2" required>{{ auth()->user()->adress }}</textarea>
                             </div>
