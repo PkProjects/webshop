@@ -27,6 +27,10 @@ Route::resource('/item', 'App\Http\Controllers\ItemController');
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 Route::resource('/category', 'App\Http\Controllers\CategoryController');
 
+//-- R E V I E W S
+
+Route::resource('/review', 'App\Http\Controllers\ReviewController');
+
 
 // -- U S E R S
 Route::get('/user', [\App\Http\Controllers\UserController::class, 'index']);

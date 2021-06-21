@@ -16,5 +16,13 @@ class Review extends Model
         return $this->belongsTo(Item::class);
     }
 
+    protected $fillable = [
+        'pros',
+        'cons',
+        'review',
+        'rating',
+        'user_id',
+        'item_id'
+    ];
 
 }
