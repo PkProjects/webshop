@@ -23,8 +23,10 @@
                                     <label for="email">User email</label>
                             <input class="form-control" type="text" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
 
+                            <?php $priceTotal=0;?>
                             @foreach( json_decode($item_array) as $subArray )
                                 @foreach( $subArray as $item)
+                                <?php $priceTotal += $item->price;?>
                                     <label for="item_array">Item {{$item->id}}: {{$item->name}}, Price : {{$item->price}}</label>
                                     <input type="text" id="quantity" class="form-control" name="quantity"
                                         placeholder="Order" value="QUANTITY" required>
@@ -32,7 +34,7 @@
                             @endforeach
                             <input type="hidden" name="item_array" id="item_array" value="{{$item_array}}">
                             <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
-                            <input type="hidden" name="total_cost" id="total_cost" value="5">
+                            <input type="hidden" name="total_cost" id="total_cost" value="{{$priceTotal}}">
                             </div>
                             <div class="control-group col-12 mt-2">
                                 <label for="delivery_adress">Delivery Adress</label>
