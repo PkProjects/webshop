@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -28,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $view->with([
                 '_categories' => Category::all(['id', 'name']),
-                '_shopcart' => session('cart')
+                '_shopcart' => session('cart'),
+                '_items' => Item::all(['id', 'name', 'price'])
             ]);
 
         });
