@@ -85,7 +85,7 @@ class ItemController extends Controller
             'properties'    => $request->properties
         ]);
 
-    return redirect(route('category.index'))
+    return redirect(route('category.show', $request->category_id))
     ->with('success','Item added successfully');
     }
     public $reviewed = false;
