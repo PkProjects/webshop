@@ -19,13 +19,15 @@
     <div id="myCarousel" class="carousel slide border border-secondary-3 p-3 mx-1 mb-4"
     data-ride="carousel">
     <div class="carousel-inner">
-        @foreach ($_items->sortByDesc('created_at')->take(12)->chunk(4) as $chunk)
+        @foreach ($_items->sortByDesc('id')->take(12)->chunk(4) as $chunk)
             <div class="carousel-item @if ($loop->first) active @endif">
                 @foreach ($chunk as $item)
                     <div class="col-3 my-3 d-inline-block" id="carousel-column">
-                        <img class="img-fluid mb-2" src="https://www.woodbrass.com/images/SQUARE400/woodbrass/EMD+30567.JPG" alt="placeholder">
-                        <div>{{ $item->name }}</div>
-                        <div>€ {{ $item->price }},-</div>
+                        <a href="{{ route('item.show', $item) }}">
+                            <img class="img-fluid mb-2" src="https://www.woodbrass.com/images/SQUARE400/woodbrass/EMD+30567.JPG" alt="placeholder">
+                            <div>{{ $item->name }}</div>
+                            <div>€ {{ $item->price }},-</div>
+                        </a>
                     </div>
                 @endforeach
             </div>
