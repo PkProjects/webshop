@@ -26,7 +26,7 @@
                                     <button class="btn btn-danger">Remove from cart</button>
                                 </form>
                                 </ul>      
-                                <?php $totalPrice += $test->price; ?>
+                                <?php $totalPrice += ($test->price * $test->quantity); ?>
                             <?php $index++; ?>
                             @endforeach
                         @endif
@@ -35,7 +35,6 @@
                         <form id="finish-order" class="" action="{{route('order.finish')}}" method="POST">
                             
                             @csrf
-                            <input type="hidden" name="item_array" value="{{json_encode($cartArray)}}">
                             <button class="btn btn-warning">Complete information & Pay</button>
                         </form>
                     </div>         
@@ -46,9 +45,8 @@
     <script>
 
     function addOne(index){
-        if(index){
         let addBut = document.getElementById("add"+index);
-        }
+        
 
         axios({
             url: addBut.getAttribute('route'),
