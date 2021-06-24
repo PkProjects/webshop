@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Review;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -30,7 +31,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 '_categories' => Category::all(['id', 'name']),
                 '_shopcart' => session('cart'),
-                '_items' => Item::all(['id', 'name', 'price'])
+                '_items' => Item::all(['id', 'name', 'price', 'summary']),
+                '_reviews' => Review::all(['id', 'user_id', 'review', 'rating', 'item_id'])
             ]);
 
         });
