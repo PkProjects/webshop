@@ -35,7 +35,7 @@ class CartController extends Controller
     public function show()
     {
         $cart = session('cart');
-        $cartArray = [];;
+        $cartArray = [];
         $testItems = Item::all();
         if($cart != null){
             foreach($cart as $item){

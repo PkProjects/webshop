@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -68,9 +69,25 @@ class OrderController extends Controller
     }
 
     public function finish(Request $request){
-        $order = $request->item_array;
+
+        $cart = session('cart');
+        $cartArray = [];
+        $testItems = Item::all();
+        $totalPrice = 0;
+        if($cart != null){
+            foreach($cart as $item){
+                foreach($item as $id => $amount){
+                    $testItem = $testItems->find($id);
+                    $testItem->quantity = $amount;
+                    $cartArray[] = $testItem;
+                    $totalPrice += ($testItem->price * $amount);
+                };
+            };
+        }
+
         return view('order.finish', [
-            'item_array' => $order
+            'item_array' => $cartArray,
+            'total_price' => $totalPrice
         ]);    
     }
 
