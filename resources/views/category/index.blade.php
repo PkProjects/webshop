@@ -22,9 +22,8 @@
 
         <a href="{{ route('category.show', $category) }}">
             <img class="img-fluid mb-2" src="https://www.vorkaccountants.nl/wp-content/uploads/2018/01/placeholder.png" alt="placeholder">
+            <div>{{ $category->name }}</div>
         </a>
-
-        <a href="{{ route('category.show', $category) }}">{{ $category->name }} </a>
 
     </div>
 
