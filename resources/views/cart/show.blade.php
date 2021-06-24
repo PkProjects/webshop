@@ -11,13 +11,15 @@
                         <p> Current shopping cart </p>
                         <?php $totalPrice = 0; $index = 0; ?>
                         @if( $cartArray !== null )
-                            @foreach( $cartArray as $cartStuff)
-                            @foreach( $cartStuff as $test)
+                            @foreach( $cartArray as $test)
                                 <ul>
                                     <li> Id: {{$test->id}}</li>
                                     <li> Name: {{$test->name}}</li>
                                     <li> Price: {{$test->price}}</li>
+                                    <li id="amount{{$index}}"> Qnt: {{$test->quantity}}</li>
 
+                                    <button id="add{{$index}}" class="btn btn-danger" onclick="addOne({{$index}})" route="{{route('cart.add', $index)}}"> + 1 </button>
+                                    <button id="sub{{$index}}" class="btn btn-danger" onclick="subOne({{$index}})" route="{{route('cart.sub', $index)}}"> - 1</button>
                                 <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
@@ -25,11 +27,9 @@
                                 </form>
                                 </ul>      
                                 <?php $totalPrice += $test->price; ?>
-                            @endforeach
                             <?php $index++; ?>
                             @endforeach
                         @endif
-
                         <p> Your total price is €<?= $totalPrice; ?>,- </p>
                         
                         <form id="finish-order" class="" action="{{route('order.finish')}}" method="POST">
@@ -43,4 +43,59 @@
             </div>
         </div>
     </div>
+    <script>
+
+    function addOne(index){
+        //let quant = document.getElementById("amount"+index);
+        let addBut = document.getElementById("add"+index);
+        //let someArray = {!! json_encode($cartArray[0]) !!};
+        //quant.innerHTML = "Qnt: " + (someArray[0].quantity+1);
+
+        axios({
+            url: addBut.getAttribute('route'),
+            method: 'PUT',
+            data: {
+                item: index
+            }
+        }).then(function(response) {
+            if (response.data.succes === true) {
+                console.log('yay!');
+                console.log(response.data.test);
+                window.location = response.data.redirect;
+            } else {
+                console.log('whydoesthisrun');
+            }
+        }).catch(function(response) {
+            alert(response.data.message)
+        });
+    }
+
+    function subOne(index){
+
+        //let quant = document.getElementById("amount"+index);
+        let subBut = document.getElementById("sub"+index);
+        // let someArray = {!! json_encode($cartArray[0]) !!};
+        // quant.innerHTML = "Qnt: " + (someArray[0].quantity-1);
+
+        axios({
+            url: subBut.getAttribute('route'),
+            method: 'PUT',
+            data: {
+                item: index
+            }
+        }).then(function(response) {
+            if (response.data.succes === true) {
+                console.log('yay!');
+                console.log(response.data.test);
+                window.location = response.data.redirect;
+            } else {
+                console.log('whydoesthisrun');
+            }
+        }).catch(function(response) {
+            alert(response.data.message)
+        });
+
+    }
+
+    </script>
 @endsection

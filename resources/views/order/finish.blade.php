@@ -29,7 +29,7 @@
                                 <?php $priceTotal += $item->price;?>
                                     <label for="item_array">Item {{$item->id}}: {{$item->name}}, Price : {{$item->price}}</label>
                                     <input type="text" id="quantity" class="form-control" name="quantity"
-                                        placeholder="Order" value="QUANTITY" required>
+                                        placeholder="Order" value="{{$item->quantity}}" required readonly>
                                 @endforeach
                             @endforeach
                             <input type="hidden" name="item_array" id="item_array" value="{{$item_array}}">
@@ -39,7 +39,7 @@
                             <div class="control-group col-12 mt-2">
                                 <label for="delivery_adress">Delivery Adress</label>
                                 <textarea id="delivery_adress" class="form-control" name="delivery_adress" placeholder="Enter adress"
-                                          rows="2" required>{{ auth()->user()->adress }}</textarea>
+                                          rows="2" required readonly>{{ auth()->user()->adress }}</textarea>
                             </div>
                         </div>
                         <div class="row mt-2">

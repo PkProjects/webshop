@@ -35,15 +35,20 @@ class CartController extends Controller
     public function show()
     {
         $cart = session('cart');
-        $cartArray = [];
+        $cartArray = [];;
+        $testItems = Item::all();
         if($cart != null){
             foreach($cart as $item){
                 foreach($item as $id => $amount){
-                    $cartArray[] = Item::where('id', $id)->get();
+                    //$testItem = Item::where('id', $id)->get()
+                    $testItem = $testItems->find($id);
+                    $testItem->quantity = $amount;
+                    //dd($testItem);
+                    $cartArray[] = $testItem;
                 };
             };
         }
-
+        //dd($cartArray);
         return view('cart.show', [
             'cartArray' => $cartArray
         ]);    
@@ -61,5 +66,55 @@ class CartController extends Controller
             $i++;
         }
         return redirect(route('cart.show'));
+    }
+
+    public function add(Request $request, $index){
+
+        try{
+            $tempValue = $request->session()->get('cart.'.$index);
+            foreach($tempValue as $key => $value){
+                $tempValue[$key] += 1;
+            }
+            $request->session()->put('cart.'.$index, $tempValue);
+
+            return response()->json([
+                'succes' => true,
+                'test' => $request->session()->get('cart.'.$index),
+                'redirect' => route('cart.show')
+            ]);
+        } catch(Exception $e){
+
+            return response()->json([
+                'succes' => false,
+                'request' => $request->item,
+                'message' => $e->getMessage()
+            ]);
+        }
+
+    }
+
+    public function sub(Request $request, $index){
+
+        try{
+            $tempValue = $request->session()->get('cart.'.$index);
+            foreach($tempValue as $key => $value){
+                $tempValue[$key] -= 1;
+            }
+            $request->session()->put('cart.'.$index, $tempValue);
+
+            return response()->json([
+                'succes' => true,
+                'test' => $request->session()->get('cart.'.$index),
+                'redirect' => route('cart.show')
+            ]);
+        } catch(Exception $e){
+
+            return response()->json([
+                'succes' => false,
+                'request' => $request->item,
+                'message' => $e->getMessage()
+            ]);
+        }
+
     }
 }

@@ -69,7 +69,6 @@ class OrderController extends Controller
 
     public function finish(Request $request){
         $order = $request->item_array;
-        //dd($order);
         return view('order.finish', [
             'item_array' => $order
         ]);    
