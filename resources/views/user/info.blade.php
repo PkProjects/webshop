@@ -22,13 +22,12 @@
 
 
                         @if(json_decode($order->item_array) !== null)
-                            @foreach( json_decode($order->item_array) as $subArray)
-                            @foreach( $subArray as $orderItem)
+                            @foreach( json_decode($order->item_array) as $orderItem)
                             <li>Item ID: {{ $orderItem->id }}</li>
-                            <li>Item Name: {{ $orderItem->name }}</li>
-                            <li>Item Price: {{ $orderItem->price }}</li>
+                            <li>Item name: {{ $orderItem->name }}</li>
+                            <li>Item price: {{ $orderItem->price }}</li>
+                            <li>Item quantity: {{ $orderItem->quantity }}</li>
                             <br>
-                            @endforeach
                             @endforeach
                         @endif
 
