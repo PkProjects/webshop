@@ -46,10 +46,9 @@
     <script>
 
     function addOne(index){
-        //let quant = document.getElementById("amount"+index);
+        if(index){
         let addBut = document.getElementById("add"+index);
-        //let someArray = {!! json_encode($cartArray[0]) !!};
-        //quant.innerHTML = "Qnt: " + (someArray[0].quantity+1);
+        }
 
         axios({
             url: addBut.getAttribute('route'),
@@ -72,10 +71,7 @@
 
     function subOne(index){
 
-        //let quant = document.getElementById("amount"+index);
         let subBut = document.getElementById("sub"+index);
-        // let someArray = {!! json_encode($cartArray[0]) !!};
-        // quant.innerHTML = "Qnt: " + (someArray[0].quantity-1);
 
         axios({
             url: subBut.getAttribute('route'),
