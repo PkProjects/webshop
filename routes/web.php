@@ -56,3 +56,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::put('/addtocart/{item}', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('item.cart');
 Route::get('/cart', [\App\Http\Controllers\CartController::class, 'show'])->name('cart.show');
 Route::delete('/cart/{index}', [\App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
+Route::put('/addcart/{index}', [\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::put('/subcart/{index}', [\App\Http\Controllers\CartController::class, 'sub'])->name('cart.sub');
