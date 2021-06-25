@@ -11,7 +11,7 @@
                     <p>Fill out this form to add an item</p>
 
                     <hr>
-                    <form action="{{route('item.store')}}" method="POST">
+                    <form action="{{route('item.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                         <div class="row">
@@ -42,10 +42,15 @@
                                           rows="2" value="" required></textarea>
                             </div>
 
-                            <div class="control-group col-12">
+                            <div class="control-group col-12">    
                                 <label for="image">Add image</label>
-                                <input type="text" id="image" class="form-control" name="image"
-                                       placeholder="Enter img link" value="" required>
+                                <!-- <input type="text" id="image" class="form-control" name="image"
+                                       placeholder="Enter img link" value="" required>         -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="file" id="image" name="image" class="form-control">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="control-group col-12">
