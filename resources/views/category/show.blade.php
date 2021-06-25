@@ -14,9 +14,24 @@
 
     <h1 class="mb-3"> {{ $category->name }}</h1>
 
+    <div class="control-group col-8 mt-2 mb-3">
+        <form id="select-frm" class="" action="" method="POST">
+            @csrf
+        <select id="itemOrder" class="form-control" name="itemOrder" placeholder="Sort items by:"
+                    rows="4" required>
+            <option value="none" selected disabled hidden>Sort items by:</option>
+            <option value="1">Price - Ascending</option>
+            <option value="2">Price - Descending</option>
+            <option value="3">Name - Ascending</option>
+            <option value="4">Name - Descending</option>
+        </select>
+
+            <button type="submit" class="btn btn-danger">Sort Items!</button>
+        </form>
+    </div>
     <div class="row">
     
-        @foreach ($category->items as $item)
+        @foreach ($items as $item)
 
         <div class="col-3 mb-3">
              <a href="{{ route('item.show', $item) }}">
@@ -58,7 +73,6 @@
 
 <script>
             function addToCart(itemId){
-                //let item = {!! json_encode($item) !!};
                 let cartButton = document.getElementById('cartButton'+itemId);
                 axios({
                     url: cartButton.getAttribute('route'),

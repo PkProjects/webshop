@@ -26,6 +26,7 @@ Route::resource('/item', 'App\Http\Controllers\ItemController');
 
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 Route::resource('/category', 'App\Http\Controllers\CategoryController');
+Route::post('/category/{category}', [\App\Http\Controllers\CategoryController::class, 'sort']);
 
 //-- R E V I E W S
 
