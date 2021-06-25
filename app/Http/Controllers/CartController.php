@@ -43,12 +43,10 @@ class CartController extends Controller
                     //$testItem = Item::where('id', $id)->get()
                     $testItem = $testItems->find($id);
                     $testItem->quantity = $amount;
-                    //dd($testItem);
                     $cartArray[] = $testItem;
                 };
             };
         }
-        //dd($cartArray);
         return view('cart.show', [
             'cartArray' => $cartArray
         ]);    
@@ -83,14 +81,12 @@ class CartController extends Controller
                 'redirect' => route('cart.show')
             ]);
         } catch(Exception $e){
-
             return response()->json([
                 'succes' => false,
                 'request' => $request->item,
                 'message' => $e->getMessage()
             ]);
         }
-
     }
 
     public function sub(Request $request, $index){
