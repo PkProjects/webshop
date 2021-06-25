@@ -26,7 +26,7 @@ class ItemFactory extends Factory
             'price' => $this->faker->numberBetween(0,10),
             'summary' => $this->faker->sentence(30),
             'category_id' => $this->faker->numberBetween(1,5),
-            'image' => 'whatever',
+            'image' => 'piano.png',
             'supply' => true,
             'properties' => $this->faker->sentence(20),
         ];
