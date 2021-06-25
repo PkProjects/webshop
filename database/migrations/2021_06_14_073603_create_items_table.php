@@ -16,11 +16,11 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
 
-            $table->text('name');
-            $table->text('price');
+            $table->string('name');
+            $table->integer('price');
             $table->text('summary');
-            $table->text('category_id');
-            $table->text('image');
+            $table->string('category_id');
+            $table->string('image');
             $table->text('supply');
             $table->text('properties');
 
