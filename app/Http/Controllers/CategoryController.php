@@ -20,8 +20,26 @@ class CategoryController extends Controller
     {
     return view ('category.show',[
     'category'  => $category,
-    'items'     => $category->items(),
+    'items'     => $category->items,
     ]);
+    }
+
+    public function sort(Request $request, Category $category){
+        $sortedItems = $category->items;
+        if($request->itemOrder == 1){
+            $sortedItems = $category->items->sortBy('price');
+        } else if($request->itemOrder == 2){
+            $sortedItems = $category->items->sortByDesc('price');
+        } else if($request->itemOrder == 3){
+            $sortedItems = $category->items->sortBy('name');
+        } else if($request->itemOrder == 4){
+            $sortedItems = $category->items->sortByDesc('name');
+        }
+        //dd($sortedItems);
+        return view ('category.show',[
+            'category'  => $category,
+            'items'     => $sortedItems,
+        ]);
     }
 
 }
