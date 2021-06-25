@@ -17,9 +17,12 @@
                         @method('PUT')
                         <div class="row">
                             <div class="control-group col-12">
-                                <label for="item_array">Items</label>
-                                <input type="text" id="item_array" class="form-control" name="item_array"
-                                       placeholder="Order" value="{{ $order->item_array }}" required>
+
+                            @foreach( json_decode($order->item_array) as $item )
+                                    <label for="item_array">Item id: {{$item->id}}  Item name: {{$item->name}}, Price : {{$item->price}}</label>
+                                    <input type="text" id="item{{$item->id}}" class="form-control" name="item{{$item->id}}"
+                                        placeholder="Order" value="{{ $item->quantity }}" required>
+                            @endforeach
                             </div>
 
                             <div class="control-group col-12 mt-2">
@@ -38,6 +41,7 @@
                                           value="{{ $order->processed }}" required>
                             </div>
                         </div>
+                        <input type='hidden' name="item_array" id="item_array" value="{{$order->item_array}}">
                         <div class="row mt-2">
                             <div class="control-group col-12 text-center">
                                 <button id="btn-submit" class="btn btn-primary">

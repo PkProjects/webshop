@@ -46,15 +46,28 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
+        $tempArray = [];
+        $tempArray2 = json_decode($request->item_array);
+
+        foreach(json_decode($request->item_array) as $item){
+            $tempArray[] = $item->id;
+        }
+        foreach($tempArray as $id){
+            foreach($tempArray2 as $item){
+                if($item->id == $id){
+                    $item->quantity = $request->{"item" . $id};
+                }
+            }
+        }
+
         $order->update([
-            'item_array' => $request->item_array,
+            'item_array' => json_encode($tempArray2),
             'total_cost' => $request->total_cost,
             'delivery_adress' => $request->delivery_adress,
             'processed' => $request->processed
         ]);
 
-        return redirect('/users/');   
-        //return redirect('user');    
+        return redirect('/orders/');   
     }
 
     /**

@@ -14,14 +14,15 @@
                                 <ul>
                                     <li><b>Order ID: {{ $order->id }}</b></li>
                                     @if(json_decode($order->item_array) !== null)
-                                    @foreach( json_decode($order->item_array) as $orderItem)
-                                    <li>Item ID: {{ $orderItem->id }}</li>
-                                    <li>Item Name: {{ $orderItem->name }}</li>
-                                    <li>Item Price: {{ $orderItem->price }}</li>
-                                    <li>Item Quantity: {{ $orderItem->quantity }}</li>
-                                    <br>
-                                    @endforeach
+                                        @foreach( json_decode($order->item_array) as $orderItem)
+                                            <li>Item ID: {{ $orderItem->id }}</li>
+                                            <li>Item Name: {{ $orderItem->name }}</li>
+                                            <li>Item Price: {{ $orderItem->price }}</li>
+                                            <li>Item Quantity: {{ $orderItem->quantity }}</li>
+                                            <br>
+                                        @endforeach
                                     @endif
+                                    <li>Order processed: {{ $order->processed }}</li>
                                     <li>Order price: {{ $order->total_cost }}</li>
 
                             <a href="{{ route('order.edit', $order->id)}}">-Edit Order-</a>
