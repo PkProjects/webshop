@@ -35,7 +35,7 @@
 
         <div class="col-3 mb-3">
              <a href="{{ route('item.show', $item) }}">
-                <img class="img-fluid mb-2" src="https://www.vorkaccountants.nl/wp-content/uploads/2018/01/placeholder.png" alt="placeholder">
+                <img class="img-fluid mb-2" src="{{asset('img/'.$item->image)}}" alt="placeholder" style="width:250px;height:250px;">
             </a>
             <div class="row">
                 <div class="col-7">

@@ -31,7 +31,7 @@
 
     <div class="row" id="item-show-display">
         <div class="col-6">
-            <img src="https://www.woodbrass.com/images/SQUARE400/woodbrass/EMD+30567.JPG" alt="an acousitc guitar">
+            <img src="{{asset('img/'.$item->image)}}" alt="an acousitc guitar" style="width:200px; height:200px;">
             
         </div>
 

@@ -75,12 +75,16 @@ class ItemController extends Controller
     }
 
     public function store(Request $request, Item $item){
+        //$oldName = $request->image->getClientOriginalName();
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('img'), $imageName);
+
         Item::create([
             'name'          => $request->name,
             'price'         => $request->price,
             'summary'       => $request->summary,
             'category_id'   => $request->category_id,
-            'image'         => $request->image,
+            'image'         => $imageName,
             'supply'        => $request->supply,
             'properties'    => $request->properties
         ]);
