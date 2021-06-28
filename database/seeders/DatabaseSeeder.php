@@ -20,21 +20,27 @@ class DatabaseSeeder extends Seeder
 
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Pianos',
+            'image'       => 'piano.png'
         ]);
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Guitars',
+            'image'       => 'guitar.jpg'
         ]);
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Piano Music',
+            'image'       => 'pmusic.jpg'
         ]);
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Guitar Music',
+            'image'       => 'gmusic.png'
         ]);
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Piano accessories',
+            'image'       => 'paccessories.jpeg'
         ]);
         $categ = \App\Models\Category::factory()->create([
             'name'        => 'Guitar accessories',
+            'image'       => 'gaccessories.jpg'
         ]);
 
         // BASE ITEMS
