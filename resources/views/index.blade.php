@@ -25,8 +25,8 @@
                     <div class="col-3 my-3 d-inline-block" id="carousel-column">
                         <a href="{{ route('item.show', $item) }}">
                             <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
-                            <div id="carousel-item-name">{{ $item->name }}</div>
-                            <div id="carousel-item-price">€ {{ $item->price }},-</div>
+                            <div id="carousel-item-name" class="pl-2">{{ $item->name }}</div>
+                            <div id="carousel-item-price" class="pl-2">€ {{ $item->price }},-</div>
                         </a>
                     </div>
                 @endforeach
@@ -51,19 +51,26 @@
     <h2 class="mb-3">Browse categories</h2>
 
         <div class="row border border-secondary-3 p-3 mx-1 mb-5">
-
+            
             @foreach ($_categories as $category)
 
-            <div class="col-2 my-3">
-        
-                <a href="{{ route('category.show', $category) }}">
-                    <img class="img-fluid mb-2" src="{{asset('img/'.$category->image)}}" alt="category image">
-                    <div>{{ $category->name }}</div>
-                </a>
-             </div>
-        
+                <div class="col-2 mt-3 mb-1 bg-white pb-1 pt-3">
+                    <a href="{{ route('category.show', $category) }}">
+                        <img id="index-category-image" class="img-fluid mb-2 mx-auto d-block" src="{{asset('img/'.$category->image)}}" alt="category image">
+                    </a>
+                </div>
+            
             @endforeach
 
+            @foreach ($_categories as $category)
+                <div id="index-category-name" class="col-2 my-2 text-center">
+                    <a href="{{ route('category.show', $category) }}">
+                        {{ $category->name }}
+                    </a>
+                </div>
+            @endforeach
+
+            
         </div>
 
     <h2>Item of the week</h2>
@@ -73,7 +80,7 @@
             @if ($item->id == 2)
                 <div class="col-5">
                     <a href="{{ route('item.show', $item) }}">
-                        <img class="img-fluid border border-dark-5" src="{{asset('img/'.$item->image)}}" alt="placeholder">
+                        <img class="img-fluid border border-dark-5 p-4 bg-white" src="{{asset('img/'.$item->image)}}" alt="placeholder">
                     </a>
                 </div>
 
@@ -97,10 +104,9 @@
             <div class="carousel-inner">
             
             @foreach ($_reviews as $review)
-           
             @if ($review->item_id == 2)
             
-            <div class="carousel-item @if ($loop->first) active @endif">
+            <div class="carousel-item @if ($loop->odd) active @endif">
                 <div class="row">
                     <div class="col-2">
                     </div>
@@ -156,7 +162,6 @@
                         </div>
                         <div class="mb-2">"<i>{{ $review->review }}</i>"</div>
                         <div>- {{ $review->user->name}} </div>
-                        
                     </div>
                    
                     <div class="col-2">
@@ -164,7 +169,7 @@
                 </div>
             </div>
             @endif
-             @endforeach
+            @endforeach
         
     </div>
     <a class="carousel-control-prev" href="#review_carousel" role="button" data-slide="prev">

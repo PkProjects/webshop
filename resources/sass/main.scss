@@ -1,3 +1,19 @@
+// general
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h2 {
+    color: #213b50;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
 // home page
 
 #header-bg{
@@ -9,17 +25,7 @@
 }
 
 .carousel-control-prev, .carousel-control-next {
-    width: 5%   
-}
-
-a {
-    color: inherit;
-}
-
-h2 {
-    color: #213b50;
-    font-size: 2rem;
-    font-weight: 600;
+    width: 5%;   
 }
 
 #carousel-item-name {
@@ -34,6 +40,14 @@ h2 {
 
 #carousel-item-image {
     max-height: 200px;
+}
+
+#index-category-image {
+    max-height: 130px;
+}
+
+#index-category-name {
+    font-size: 1.1rem;
 }
 
 #reasons{
