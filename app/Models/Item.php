@@ -17,6 +17,11 @@ class Item extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function avgRating()
+{
+    return $this->reviews()->avg('rating');
+}
+
     protected $fillable = [
         'name',
         'price',
