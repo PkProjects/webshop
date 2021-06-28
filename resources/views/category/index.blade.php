@@ -21,7 +21,7 @@
     <div class="col-3 mb-3">
 
         <a href="{{ route('category.show', $category) }}">
-            <img class="img-fluid mb-2" src="https://www.vorkaccountants.nl/wp-content/uploads/2018/01/placeholder.png" alt="placeholder">
+            <img class="img-fluid mb-2" src="{{asset('img/'.$category->image)}}" alt="placeholder">
             <div>{{ $category->name }}</div>
         </a>
 
