@@ -10023,3 +10023,34 @@ a {
   font-weight: 500;
   color: #0c256b;
 }
+
+#review-button {
+  background-color: #0c256b;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.btn-warning {
+  border: none;
+}
+
+.adjust-qnt-btn {
+  padding: 0.3em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+
+#total-price {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #0c256b;
+}
+
+#current-cart {
+  font-size: 1.5rem;
+}
+
+#complete-info-btn {
+  position: relative;
+  left: 31rem;
+}

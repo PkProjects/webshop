@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 '_categories' => Category::all(['id', 'name']),
                 '_shopcart' => session('cart'),
-                '_items' => Item::all(['id', 'name', 'price', 'summary']),
+                '_items' => Item::all(['id', 'name', 'price', 'summary', 'image']),
                 '_reviews' => Review::all(['id', 'user_id', 'review', 'rating', 'item_id'])
             ]);
 

@@ -31,7 +31,7 @@
 
     <div class="row" id="item-show-display">
         <div class="col-6">
-            <img src="{{asset('img/'.$item->image)}}" alt="an acousitc guitar" style="width:200px; height:200px;">
+            <img class="img-fluid" src="{{asset('img/'.$item->image)}}" alt="an acousitc guitar">
             
         </div>
 
@@ -139,7 +139,7 @@
     @endforelse
     
     @if ($item->reviewed == false)
-        <a class="btn btn-warning mb-4" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <a class="btn btn-warning mb-4" id="review-button" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
         Click to write a review
         </a>
     @else
