@@ -13,14 +13,17 @@
     <div class="row">
 
         <h1 class="mb-1">{{ $item->name }}</h1>  
-        
-        @if(Auth::user()->id == 11)
-        <a href="{{ route('item.edit', $item) }}">
-            <button type="button" class="btn btn-secondary ml-3 py-1 mt-1">
-                Edit item
-            </button>
-        </a>
-        @endif
+        @guest 
+            
+        @else
+            @if(Auth::user()->can('item.edit'))
+            <a href="{{ route('item.edit', $item) }}">
+                <button type="button" class="btn btn-secondary ml-3 py-1 mt-1">
+                    Edit item
+                </button>
+            </a>
+            @endif
+        @endguest
 
     </div>
     <div class="mb-3">@include('item.partials.avgrating') 
@@ -129,9 +132,12 @@
         </div>
         <p class="mb-3">{{ $review->review }}</p>
         <hr>
+        @guest 
+        @else
         @if ($review->user->id === Auth::user()->id)
             @php $item->reviewed = true @endphp
         @endif
+        @endguest
     @empty
 
         <p class="mb-3"> No reviews yet, be the first to write one. </p>
@@ -147,7 +153,7 @@
     @endif
    
     
-
+    @auth
     <div class="collapse" id="reviewform">
         <div class="card card-body">
             <div class="form-content px-4 py-2">
@@ -205,6 +211,7 @@
             </div>
         </div>
     </form>
+    @endauth
 </div>
     </div>        
 </div>
