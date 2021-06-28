@@ -10002,6 +10002,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#header-bg {
+  background-color: #213b50;
+}
+
 #carousel-column {
   max-width: 264px;
 }
@@ -10012,6 +10016,30 @@ h3 {
 
 a {
   color: inherit;
+}
+
+h2 {
+  color: #213b50;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#carousel-item-name {
+  font-size: 1.1rem;
+}
+
+#carousel-item-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0c256b;
+}
+
+#carousel-item-image {
+  max-height: 200px;
+}
+
+#reasons {
+  font-size: 1rem;
 }
 
 #item-show-display {

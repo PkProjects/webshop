@@ -4,19 +4,19 @@
 
 <div class="container">
 
-    <div class="row bg-primary justify-content-center mb-4" >
+    <div class="row justify-content-center mb-3" id="header-bg">
 
-        <h1 class="display-2 text-center py-4">Some type of graphic here</h1>
+       <img src="{{asset("img/header.png")}}" alt="banner">
 
     </div>
 
-    <p class="text-center mb-4">This is why we are so great: <b>1.</b> We are not an actual web shop. 
-        <b>2.</b> We don't actually ship things. <b>3.</b> So we never ship late. ;)
+    <p class="text-center mb-5" id="reasons">This is why we are so great: <b>1.</b> We are not an actual web shop. 
+        <b>2.</b> We don't actually ship things. <b>3.</b> So we never ship late!
     </p>
 
     <h2 class="mb-3">Latest items</h2>
     
-    <div id="myCarousel" class="carousel slide border border-secondary-3 p-3 mx-1 mb-4"
+    <div id="myCarousel" class="carousel slide border border-secondary-3 p-3 mx-1 mb-5"
     data-ride="carousel">
     <div class="carousel-inner">
         @foreach ($_items->sortByDesc('id')->take(12)->chunk(4) as $chunk)
@@ -24,9 +24,9 @@
                 @foreach ($chunk as $item)
                     <div class="col-3 my-3 d-inline-block" id="carousel-column">
                         <a href="{{ route('item.show', $item) }}">
-                            <img class="img-fluid mb-2" src="{{asset('img/'.$item->image)}}" alt="placeholder">
-                            <div>{{ $item->name }}</div>
-                            <div>€ {{ $item->price }},-</div>
+                            <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
+                            <div id="carousel-item-name">{{ $item->name }}</div>
+                            <div id="carousel-item-price">€ {{ $item->price }},-</div>
                         </a>
                     </div>
                 @endforeach
@@ -50,14 +50,14 @@
 
     <h2 class="mb-3">Browse categories</h2>
 
-        <div class="row border border-secondary-3 p-3 mx-1 mb-4">
+        <div class="row border border-secondary-3 p-3 mx-1 mb-5">
 
             @foreach ($_categories as $category)
 
             <div class="col-2 my-3">
         
                 <a href="{{ route('category.show', $category) }}">
-                    <img class="img-fluid mb-2" src="https://www.vorkaccountants.nl/wp-content/uploads/2018/01/placeholder.png" alt="placeholder">
+                    <img class="img-fluid mb-2" src="{{asset('img/'.$category->image)}}" alt="category image">
                     <div>{{ $category->name }}</div>
                 </a>
              </div>
