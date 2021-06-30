@@ -18,13 +18,11 @@
 
     @foreach ($categories as $category)
 
-    <div class="col-3 mb-3">
-
+    <div class="col-3 mb-3 mx-3 bg-white categories">
         <a href="{{ route('category.show', $category) }}">
-            <img class="img-fluid mb-2" src="{{asset('img/'.$category->image)}}" alt="placeholder">
-            <div>{{ $category->name }}</div>
+            <img class="img-fluid mb-4 mx-auto d-block mt-3" id="category-index-image" src="{{asset('img/'.$category->image)}}" alt="image of the category"">
+            <div class="text-center mb-1" id="category-index-name">{{ $category->name }}</div>
         </a>
-
     </div>
 
     @endforeach

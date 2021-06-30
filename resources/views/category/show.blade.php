@@ -14,7 +14,8 @@
 
     <h1 class="mb-3"> {{ $category->name }}</h1>
 
-    <div class="control-group col-8 mt-2 mb-3">
+    <div class="row mb-4">
+        <div class="control-group col-6 mb-3">
         <form id="select-frm" class="" action="" method="POST">
             @csrf
         <select id="itemOrder" class="form-control" name="itemOrder" placeholder="Sort items by:"
@@ -25,24 +26,30 @@
             <option value="3">Name - Ascending</option>
             <option value="4">Name - Descending</option>
         </select>
-
-            <button type="submit" class="btn btn-danger">Sort Items!</button>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn" id="sort-button">Sort Items</button>
+        </div>
         </form>
     </div>
+
     <div class="row">
     
         @foreach ($items as $item)
 
-        <div class="col-3 mb-3">
+        <div class="col-3 mb-3 mx-2">
+            <div class="row bg-white mb-2 justify-content-center">
              <a href="{{ route('item.show', $item) }}">
-                <img class="img-fluid mb-2" src="{{asset('img/'.$item->image)}}" alt="placeholder" style="width:250px;height:250px;">
-            </a>
+                <img class="img-fluid mb-2 px-3 py-2" id="category-show-image" src="{{asset('img/'.$item->image)}}" alt="image of the product">
+            </div>
+                
             <div class="row">
                 <div class="col-7">
-                    <a href="{{ route('item.show', $item) }}">
-                        <div>{{ $item->name }}</div>
-                    </a>
-                    <div>{{ '€ ' . $item->price . ',-' }}</div>
+                    
+                        <div class="item-name">{{ $item->name }}</div>
+                    
+                    <div class="item-price">{{ '€ ' . $item->price . ',-' }}</div>
+                </a>
                     @if($item->supply == '1')         
                         <div>&#128994; In stock</div>
                     @else
