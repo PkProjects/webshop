@@ -7,7 +7,10 @@
                     <div class="col-8">
                     @guest
                         <h1 class="display-one">You are a guest  </h1>
-                        <p>Sign in or register to save your orders!</p>
+                        <p class="mb-4 pl-1"> <a class="font-weight-bold" href="{{ route('login') }}">Sign in</a> or 
+                            <a class="font-weight-bold" href="{{ route('register') }}">register</a> 
+                            to save your orders!
+                        </p>
                     @else
                         <h1 class="display-one">You are logged in as {{ Auth::user()->name }}  </h1>
                         <p>Your user ID is {{ Auth::user()->id }}</p>

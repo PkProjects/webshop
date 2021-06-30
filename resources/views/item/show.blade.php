@@ -144,6 +144,9 @@
 
     @endforelse
     
+    @guest
+        <p><a class="font-weight-bold" href="{{ route('login') }}">Log in</a> to write a review.</p>
+    @else
     @if ($item->reviewed == false)
         <a class="btn mb-4" id="review-button" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
         Click to write a review
@@ -151,6 +154,7 @@
     @else
         You have already reviewed this item.
     @endif
+    @endguest
    
     
     @auth
