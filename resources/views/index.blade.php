@@ -24,7 +24,9 @@
                 @foreach ($chunk as $item)
                     <div class="col-3 my-3 d-inline-block" id="carousel-column">
                         <a href="{{ route('item.show', $item) }}">
-                            <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
+                            <div class="row bg-white">
+                                <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
+                            </div>
                             <div class="pl-2 item-name">{{ $item->name }}</div>
                             <div class="pl-2 item-price">€ {{ $item->price }},-</div>
                         </a>
@@ -54,18 +56,12 @@
             
             @foreach ($_categories as $category)
 
-                <div class="col-2 mt-3 mb-1 bg-white pb-1 pt-3">
+                <div class="col-2 mt-3 mb-1 pb-1 pt-3 text-center">
                     <a href="{{ route('category.show', $category) }}">
-                        <img id="index-category-image" class="img-fluid mb-2 mx-auto d-block" src="{{asset('img/'.$category->image)}}" alt="category image">
-                    </a>
-                </div>
-            
-            @endforeach
-
-            @foreach ($_categories as $category)
-                <div id="index-category-name" class="col-2 my-2 text-center">
-                    <a href="{{ route('category.show', $category) }}">
-                        {{ $category->name }}
+                        <div class="row bg-white">
+                            <img id="index-category-image" class="img-fluid mb-3 mx-auto d-block" src="{{asset('img/'.$category->image)}}" alt="category image">
+                        </div>
+                        <div id="index-category-name">{{ $category->name }}</div>
                     </a>
                 </div>
             @endforeach

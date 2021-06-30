@@ -30,6 +30,12 @@ h2 {
     color: #0c256b;
 }
 
+// nav bar
+
+.dropdown-item:focus {
+    background-color: #213b50;
+}
+
 // home page
 
 #header-bg{
@@ -46,6 +52,9 @@ h2 {
 
 #carousel-item-image {
     max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #index-category-image {
@@ -122,9 +131,6 @@ h2 {
 .categories{
     justify-content: center;
     align-items: flex-end;
-    border: solid #213b50;
-    border-width: 2px;
-    border-radius: 7px;
 }
 
 #category-index-name{

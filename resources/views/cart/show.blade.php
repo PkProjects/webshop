@@ -15,7 +15,7 @@
                         <h2 id="current-cart"> Current shopping cart </h2>
                         <div class="row border-top border-bottom pt-3 mb-2">
                         <?php $totalPrice = 0; $index = 0; ?>
-                        @if( $cartArray !== null )
+                        @if(!empty($cartArray))
                             @foreach( $cartArray as $test)
                             
                                 <div class="col-6 mb-2">
@@ -34,7 +34,7 @@
                                 <div class="col-3 mb-3">
                                     <img id="cart-image" src="{{asset('img/'.$test->image)}}" alt="item image">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 mt-2">
                                     <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -50,6 +50,8 @@
                                 <?php $totalPrice += ($test->price * $test->quantity); ?>
                             <?php $index++; ?>
                             @endforeach
+                        @else
+                            <p class="ml-4">Your shopping cart is empty.</p>
                         @endif
                         </div>  
                         <p> Your total price is: <span class="pl-1" id="total-price">€<?= $totalPrice; ?>,-</span> </p>

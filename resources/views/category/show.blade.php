@@ -43,7 +43,7 @@
                 <img class="img-fluid mb-2 px-3 py-2" id="category-show-image" src="{{asset('img/'.$item->image)}}" alt="image of the product">
             </div>
                 
-            <div class="row">
+            <div class="row mb-4">
                 <div class="col-7">
                     
                         <div class="item-name">{{ $item->name }}</div>
