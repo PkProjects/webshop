@@ -10010,10 +10010,26 @@ a:hover {
   text-decoration: none;
 }
 
+h1 {
+  color: #213b50;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
 h2 {
   color: #213b50;
   font-size: 2rem;
   font-weight: 600;
+}
+
+.item-name {
+  font-size: 1.1rem;
+}
+
+.item-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0c256b;
 }
 
 #header-bg {
@@ -10026,16 +10042,6 @@ h2 {
 
 .carousel-control-prev, .carousel-control-next {
   width: 5%;
-}
-
-#carousel-item-name {
-  font-size: 1.1rem;
-}
-
-#carousel-item-price {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #0c256b;
 }
 
 #carousel-item-image {
@@ -10070,14 +10076,11 @@ h2 {
   color: #fff;
 }
 
-.btn-warning {
-  border: none;
-}
-
 .adjust-qnt-btn {
   padding: 0.3em;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
+  background-color: #213b50;
 }
 
 #total-price {
@@ -10093,4 +10096,50 @@ h2 {
 #complete-info-btn {
   position: relative;
   left: 31rem;
+}
+
+#cart-image {
+  width: 125px;
+  height: 125px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#category-index-image {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#category-index-image:hover {
+  opacity: 0.7;
+}
+
+.categories {
+  justify-content: center;
+  align-items: flex-end;
+  border: solid #213b50;
+  border-width: 2px;
+  border-radius: 7px;
+}
+
+#category-index-name {
+  color: #213b50;
+  font-size: 1.5rem;
+}
+
+#category-index-name:hover {
+  color: #1d68a7;
+}
+
+#sort-button {
+  background-color: #0c256b;
+  border-radius: 2px;
+  color: #fff;
+}
+
+#category-show-image {
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }

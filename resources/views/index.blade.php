@@ -25,8 +25,8 @@
                     <div class="col-3 my-3 d-inline-block" id="carousel-column">
                         <a href="{{ route('item.show', $item) }}">
                             <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
-                            <div id="carousel-item-name" class="pl-2">{{ $item->name }}</div>
-                            <div id="carousel-item-price" class="pl-2">€ {{ $item->price }},-</div>
+                            <div class="pl-2 item-name">{{ $item->name }}</div>
+                            <div class="pl-2 item-price">€ {{ $item->price }},-</div>
                         </a>
                     </div>
                 @endforeach
@@ -80,7 +80,7 @@
             @if ($item->id == 2)
                 <div class="col-5">
                     <a href="{{ route('item.show', $item) }}">
-                        <img class="img-fluid border border-dark-5 p-4 bg-white" src="{{asset('img/'.$item->image)}}" alt="placeholder">
+                        <img class="img-fluid p-4 bg-white" src="{{asset('img/'.$item->image)}}" alt="placeholder">
                     </a>
                 </div>
 

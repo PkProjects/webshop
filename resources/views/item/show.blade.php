@@ -26,28 +26,28 @@
         @endguest
 
     </div>
-    <div class="mb-3">@include('item.partials.avgrating') 
+    <div class="mb-4">@include('item.partials.avgrating') 
             @if($item->reviews()->count() > 0)
                 {{'(' . $item->reviews()->count() . ')'}}
             @endif
     </div>
 
     <div class="row" id="item-show-display">
-        <div class="col-6">
-            <img class="img-fluid" src="{{asset('img/'.$item->image)}}" alt="an acousitc guitar">
+        <div class="col-5 mr-4 bg-white">
+            <img class="img-fluid" src="{{asset('img/'.$item->image)}}" style="display: block; margin: 0px auto;" alt="an acousitc guitar">
             
         </div>
 
         <div class="col-6">
-            <div class="pr-5 mb-2" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
+            <div class="pr-5" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
+            
+        @if($item->supply == '1')         
+            <div class="mb-3">&#128994; In stock</div>
+        @else
+            <div class="mb-3">&#128308; Out of stock</div>
+        @endif
 
             <p>{{ $item->summary }}</p>
-
-            @if($item->supply == '1')         
-                <div class="mb-3">&#128994; In stock</div>
-            @else
-                <div class="mb-3">&#128308; Out of stock</div>
-            @endif
 
             @if($item->supply == '1')  
                 <button id="cartButton" route="{{route('item.cart', $item->id)}}" type="button" class="btn btn-success" onclick="addToCart()">
@@ -145,7 +145,7 @@
     @endforelse
     
     @if ($item->reviewed == false)
-        <a class="btn btn-warning mb-4" id="review-button" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <a class="btn mb-4" id="review-button" data-toggle="collapse" href="#reviewform" role="button" aria-expanded="false" aria-controls="collapseExample">
         Click to write a review
         </a>
     @else
