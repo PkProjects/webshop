@@ -10,8 +10,8 @@
 
     </div>
 
-    <p class="text-center mb-5" id="reasons">This is why we are so great: <b>1.</b> We are not an actual web shop. 
-        <b>2.</b> We don't actually ship things. <b>3.</b> So we never ship late!
+    <p class="text-center mb-5" id="reasons">This is why we are so great: <span class="reason-number">1.</span> We are not an actual web shop. 
+        <span class=reason-number>2.</span> We don't actually ship things. <span class="reason-number">3.</span> So we never ship late!
     </p>
 
     <h2 class="mb-3">Latest items</h2>

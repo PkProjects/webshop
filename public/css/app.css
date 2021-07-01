@@ -10005,6 +10005,7 @@ h3 {
 body {
   background-color: #fffcfb;
   color: #2c2c2c;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 a {
@@ -10032,6 +10033,10 @@ h3 {
   color: #252525;
   font-size: 1.8rem;
   font-weight: 700;
+}
+
+a h3:hover {
+  color: #005C64;
 }
 
 #name {
@@ -10085,16 +10090,17 @@ h3 {
 }
 
 .category-bg {
-  border-right: 5px solid #f8fafc !important;
+  border-right: 5px solid #fffcfb !important;
 }
 
 #reasons {
   font-size: 1rem;
 }
 
-#reasons b {
+.reason-number {
+  font-weight: bold;
+  font-size: 1.3rem;
   color: #6B0A0A;
-  font-size: 1.2rem;
 }
 
 #item-show-display {
@@ -10102,7 +10108,7 @@ h3 {
 }
 
 #item-show-price {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 500;
   color: #6B0A0A;
 }
@@ -10125,6 +10131,10 @@ h3 {
   background-color: #005C64;
   border-radius: 2px;
   color: #fff;
+}
+
+#review-button:hover {
+  background-color: #004349;
 }
 
 .instock {
@@ -10176,13 +10186,13 @@ h3 {
 }
 
 .confirm {
-  background-color: #e0ae6d;
-  color: #212529;
+  color: #fff;
+  background-color: #d88d2a;
 }
 
 .confirm:hover {
   color: #fff;
-  background-color: #d88d2a;
+  background-color: #ca7505;
 }
 
 .categories img {
@@ -10201,12 +10211,12 @@ h3 {
 }
 
 a#category-index-link {
-  color: #213b50;
+  color: #212529;
   font-size: 1.5rem;
 }
 
 a#category-index-link:hover {
-  color: #1d68a7;
+  color: #005C64;
 }
 
 #sort-button {

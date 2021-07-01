@@ -176,26 +176,26 @@
             </div>
 
             <div class="control-group col-8 mt-2 mb-2">
-                <label for="pros">Pros</label>
+                <label for="pros"><b>Pros</b></label>
                 <input type="text" id="pros" class="form-control" name="pros" placeholder="What are the pros?"
                             rows="4" required>
                 </input>
             </div>
             <div class="control-group col-8 mt-2 mb-2">
-                <label for="cons">Cons</label>
+                <label for="cons"><b>Cons</b></label>
                 <input type="text" id="cons" class="form-control" name="cons" placeholder="What are the cons?"
                             rows="4" required>
                 </input>
             </div>
 
             <div class="control-group col-8 mt-2 mb-2">
-                <label for="review">Review</label>
+                <label for="review"><b>Review</b></label>
                 <textarea id="review" class="form-control" name="review" placeholder="Write your review"
                             rows="4" required></textarea>
             </div>
 
             <div class="control-group col-8 mt-2 mb-3">
-                <label for="rating">Rating</label>
+                <label for="rating"><b>Rating</b></label>
                 <select id="rating" class="form-control" name="rating" placeholder="Rate the item"
                             rows="4" required>
                     <option value="none" selected disabled hidden>Choose your rating out of 5</option>
