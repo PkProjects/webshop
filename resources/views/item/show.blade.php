@@ -12,7 +12,7 @@
         @endif
     <div class="row">
 
-        <h1 class="mb-1">{{ $item->name }}</h1>  
+        <h1 class="mb-1 item-show-name">{{ $item->name }}</h1>  
         @guest 
             
         @else
@@ -26,9 +26,9 @@
         @endguest
 
     </div>
-    <div class="mb-4">@include('item.partials.avgrating') 
+    <div class="mb-4 d-inline-block">@include('item.partials.avgrating') 
             @if($item->reviews()->count() > 0)
-                {{'(' . $item->reviews()->count() . ')'}}
+               <div class="d-inline-block reviewcount"> {{'(' . $item->reviews()->count() . ')'}} </div>
             @endif
     </div>
 
@@ -42,15 +42,15 @@
             <div class="pr-5" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
             
         @if($item->supply == '1')         
-            <div class="mb-3">&#128994; In stock</div>
+            <span class="mb-3 ml-1 px-1 instock"> In stock</span>
         @else
-            <div class="mb-3">&#128308; Out of stock</div>
+            <span class="mb-3 ml-1 px-1 outstock"> Out of stock</span>
         @endif
 
-            <p>{{ $item->summary }}</p>
+            <p class="mt-3">{{ $item->summary }}</p>
 
             @if($item->supply == '1')  
-                <button id="cartButton" route="{{route('item.cart', $item->id)}}" type="button" class="btn btn-success" onclick="addToCart()">
+                <button id="cartButton" route="{{route('item.cart', $item->id)}}" type="button" class="btn add2cart" onclick="addToCart()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                     </svg> Add to cart
