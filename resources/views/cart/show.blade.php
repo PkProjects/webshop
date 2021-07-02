@@ -7,7 +7,10 @@
                     <div class="col-8">
                     @guest
                         <h1 class="display-one">You are a guest  </h1>
-                        <p>Sign in or register to save your orders!</p>
+                        <p class="mb-4 pl-1"> <a class="font-weight-bold" href="{{ route('login') }}">Sign in</a> or 
+                            <a class="font-weight-bold" href="{{ route('register') }}">register</a> 
+                            to save your orders!
+                        </p>
                     @else
                         <h1 class="display-one">You are logged in as {{ Auth::user()->name }}  </h1>
                         <p>Your user ID is {{ Auth::user()->id }}</p>
@@ -15,7 +18,7 @@
                         <h2 id="current-cart"> Current shopping cart </h2>
                         <div class="row border-top border-bottom pt-3 mb-2">
                         <?php $totalPrice = 0; $index = 0; ?>
-                        @if( $cartArray !== null )
+                        @if(!empty($cartArray))
                             @foreach( $cartArray as $test)
                             
                                 <div class="col-6 mb-2">
@@ -34,7 +37,7 @@
                                 <div class="col-3 mb-3">
                                     <img id="cart-image" src="{{asset('img/'.$test->image)}}" alt="item image">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 mt-2">
                                     <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -50,6 +53,8 @@
                                 <?php $totalPrice += ($test->price * $test->quantity); ?>
                             <?php $index++; ?>
                             @endforeach
+                        @else
+                            <p class="ml-4">Your shopping cart is empty.</p>
                         @endif
                         </div>  
                         <p> Your total price is: <span class="pl-1" id="total-price">€<?= $totalPrice; ?>,-</span> </p>
@@ -57,7 +62,7 @@
                         <form id="finish-order" class="" action="{{route('order.finish')}}" method="POST">
                             
                             @csrf
-                            <button class="btn btn-warning" id="complete-info-btn">Complete information & Pay <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle ml-1" viewBox="0 0 16 16">
+                            <button class="btn confirm" id="complete-info-btn">Complete information & Pay <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle ml-1" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                               </svg>
                             </button>
