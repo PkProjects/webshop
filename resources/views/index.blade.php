@@ -6,8 +6,8 @@
 
     <div class="row justify-content-center mb-3" id="header-bg">
 
-       <img src="{{asset("img/header.png")}}" alt="banner">
-
+        <img class="d-lg-block d-none" src="{{asset("img/header.png")}}" alt="banner">
+        <h1 class="d-none .d-md-block .d-lg-none">MusicFactory.com</h1>
     </div>
 
     <p class="text-center mb-5" id="reasons">This is why we are so great: <span class="reason-number">1.</span> We are not an actual web shop. 
@@ -16,39 +16,8 @@
 
     <h2 class="mb-3">Latest items</h2>
     
-    <div id="myCarousel" class="carousel slide border border-secondary-3 p-3 mx-1 mb-5"
-    data-ride="carousel">
-    <div class="carousel-inner">
-        @foreach ($_items->sortByDesc('id')->take(12)->chunk(4) as $chunk)
-            <div class="carousel-item @if ($loop->first) active @endif">
-                @foreach ($chunk as $item)
-                    <div class="col-3 my-3 d-inline-block" id="carousel-column">
-                        <a href="{{ route('item.show', $item) }}">
-                            <div class="row bg-white">
-                                <img class="img-fluid mb-3" id="carousel-item-image" src="{{asset('img/'.$item->image)}}" alt="placeholder">
-                            </div>
-                            <div class="pl-2 item-name">{{ $item->name }}</div>
-                            <div class="pl-2 item-price">€ {{ $item->price }},-</div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        @endforeach
-        
-    </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#6B0A0A" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
-            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-          </svg></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#6B0A0A" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
-  <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-</svg></span>
-        <span class="sr-only">Next</span>
-      </a>
-</div>
+    @include('layouts.partials.carousel')
+    
 
     <h2 class="mb-3">Browse categories</h2>
 
@@ -56,7 +25,7 @@
             
             @foreach ($_categories as $category)
 
-                <div class="col-2 mt-3 mb-1 pb-1 text-center">
+                <div class="col-lg-2 col-md-4 col-6 mt-3 mb-1 pb-1 text-center">
                     <a href="{{ route('category.show', $category) }}">
                         <div class="row bg-white category-bg pt-3">
                             <img id="index-category-image" class="img-fluid mb-4 mx-auto d-block" src="{{asset('img/'.$category->image)}}" alt="category image">
@@ -74,18 +43,18 @@
     <div class="row border border-secondary-3 p-3 mx-1 mb-4">
         @foreach ($_items as $item)
             @if ($item->id == 2)
-                <div class="col-5">
+                <div class="col-lg-5">
                     <a href="{{ route('item.show', $item) }}">
                         <img class="img-fluid p-4 bg-white" src="{{asset('img/'.$item->image)}}" alt="placeholder">
                     </a>
                 </div>
 
-                <div class="col-7 p-2">
+                <div class="col-lg-7 p-2">
                     <a href="{{ route('item.show', $item) }}">
                         <h3>{{ $item->name }}</h3>
                     </a>
                     <p>{{ $item->summary }}</p>
-                    <div class="text-right pr-5 mr-2 mb-2" id="item-show-price">€ {{ $item->price }},-</div>
+                    <div class="text-md-right pr-5 mr-2 mb-2" id="item-show-price">€ {{ $item->price }},-</div>
                     <button id="cartButton" route="{{route('item.cart', $item->id)}}" type="button" class="btn d-inline-block mb-4 add2cart" onclick="addToCart()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
@@ -104,9 +73,7 @@
             
             <div class="carousel-item @if ($loop->odd) active @endif">
                 <div class="row">
-                    <div class="col-2">
-                    </div>
-                    <div class="col-8 pl-5">
+                    <div class="col-lg-8 px-5 mx-auto">
                         <div class="mb-2">
                             @if ($review->rating == 5)
                                 @for($k = 0 ; $k < 5; $k++)
@@ -158,9 +125,6 @@
                         </div>
                         <div class="mb-2">"<i>{{ $review->review }}</i>"</div>
                         <div>- {{ $review->user->name}} </div>
-                    </div>
-                   
-                    <div class="col-2">
                     </div>
                 </div>
             </div>

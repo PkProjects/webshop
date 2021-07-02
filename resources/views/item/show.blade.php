@@ -12,7 +12,7 @@
         @endif
     <div class="row">
 
-        <h1 class="mb-1 item-show-name">{{ $item->name }}</h1>  
+        <h1 class="mb-1 pl-3 item-show-name">{{ $item->name }}</h1>  
         @guest 
             
         @else
@@ -32,13 +32,13 @@
             @endif
     </div>
 
-    <div class="row" id="item-show-display">
+    <div class="row justify-content-center" id="item-show-display">
         <div class="col-5 mr-4 bg-white">
             <img class="img-fluid" src="{{asset('img/'.$item->image)}}" style="display: block; margin: 0px auto;" alt="an acousitc guitar">
             
         </div>
 
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="pr-5" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
             
         @if($item->supply == '1')         
@@ -62,7 +62,7 @@
     </div>
 
     <div class="row">
-        <h2 class="mb-3">Reviews</h2>
+        <h2 class="mb-3 pl-3">Reviews</h2>
     </div>
 
     @forelse ($item->reviews->sortByDesc('created_at') as $review)
@@ -209,7 +209,7 @@
         </div>
         <div class="row mt-2">
             <div class="control-group col-8">
-                <button id="btn-submit" class="btn btn-primary">
+                <button id="btn-submit" class="btn btn-dark">
                     Post Review
                 </button>
             </div>
