@@ -67,9 +67,17 @@ a h3:hover {
     background-color: #98372C
 }
 
-#carousel-column {
+@media (min-width: 1200px){
+    #carousel-column {
     max-width: 264px;
-}
+    }
+}  
+
+@media (max-width: 1199px){
+    #carousel-column {
+    max-width: 290px;
+    }
+}  
 
 .carousel-control-prev, .carousel-control-next {
     width: 5%;   
@@ -83,7 +91,7 @@ a h3:hover {
 }
 
 #index-category-image {
-    max-height: 130px;
+    height: 130px;
 }
 
 #index-category-name {

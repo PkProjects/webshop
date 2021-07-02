@@ -209,7 +209,7 @@
         </div>
         <div class="row mt-2">
             <div class="control-group col-8">
-                <button id="btn-submit" class="btn btn-primary">
+                <button id="btn-submit" class="btn btn-dark">
                     Post Review
                 </button>
             </div>
