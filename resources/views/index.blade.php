@@ -7,7 +7,7 @@
     <div class="row justify-content-center mb-3" id="header-bg">
 
         <img class="d-lg-block d-none" src="{{asset("img/header.png")}}" alt="banner">
-        
+        <h1 class="d-none .d-md-block .d-lg-none">MusicFactory.com</h1>
     </div>
 
     <p class="text-center mb-5" id="reasons">This is why we are so great: <span class="reason-number">1.</span> We are not an actual web shop. 

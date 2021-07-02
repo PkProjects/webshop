@@ -41,7 +41,6 @@ data-ride="carousel">
         @foreach ($_items->sortByDesc('id')->take(12)->chunk(3) as $chunk)
             <div class="carousel-item @if ($loop->first) active @endif">
                 @foreach ($chunk as $item)
-                
                     <div class="col-4 my-3 d-inline-block" id="carousel-column">
                         <a href="{{ route('item.show', $item) }}">
                             <div class="row bg-white">
@@ -75,7 +74,7 @@ data-ride="carousel">
 data-ride="carousel">
 <div class="carousel-inner">
     @foreach ($_items->sortByDesc('id')->take(12) as $item)
-        <div class="carousel-item @if ($loop->first) active @endif">
+        <div class="carousel-item @if ($loop->last) active @endif">
             <div class="row justify-content-center">
                 <div class="my-3 d-inline-block" id="carousel-column">
                     <a href="{{ route('item.show', $item) }}">
