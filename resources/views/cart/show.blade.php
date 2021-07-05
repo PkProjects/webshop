@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 pt-2">
                  <div class="row">
-                    <div class="col-8">
+                    <div class="col-md-8">
                     @guest
                         <h1 class="display-one">You are a guest  </h1>
                         <p class="mb-4 pl-1"> <a class="font-weight-bold" href="{{ route('login') }}">Sign in</a> or 
@@ -21,23 +21,35 @@
                         @if(!empty($cartArray))
                             @foreach( $cartArray as $test)
                             
-                                <div class="col-6 mb-2">
-                                <ul>
-                                    <li> Id: {{$test->id}}</li>
-                                    <li> Name: {{$test->name}}</li>
-                                   
-                                    <li> Price: € {{$test->price}}</li>
-                        
-                                    <li id="amount{{$index}}"> 
-                                        Qnt: <button id="sub{{$index}}" class="btn btn-secondary d-inline-block mr-2 adjust-qnt-btn" onclick="subOne({{$index}})" route="{{route('cart.sub', $index)}}"> - </button>{{$test->quantity}}
-                                        <button id="add{{$index}}" class="btn btn-secondary d-inline-block ml-1 adjust-qnt-btn" onclick="addOne({{$index}})" route="{{route('cart.add', $index)}}"> + </button>
-                                    </li>
-                                </ul>
+                                <div class="col-lg-6 col-sm-5 col-6 mb-2">
+                                    <ul class="mb-2">
+                                        <li> Id: {{$test->id}}</li>
+                                        <li> Name: {{$test->name}}</li>
+                                    
+                                        <li> Price: € {{$test->price}}</li>
+                            
+                                        <li id="amount{{$index}}"> 
+                                            Qnt: <button id="sub{{$index}}" class="btn btn-secondary d-inline-block mr-2 adjust-qnt-btn" onclick="subOne({{$index}})" route="{{route('cart.sub', $index)}}"> - </button>{{$test->quantity}}
+                                            <button id="add{{$index}}" class="btn btn-secondary d-inline-block ml-1 adjust-qnt-btn" onclick="addOne({{$index}})" route="{{route('cart.add', $index)}}"> + </button>
+                                        </li>
+                                    </ul>
+                                    <div class="row d-block d-sm-none pl-5 mb-2">
+                                        <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="btn btn-danger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash mr-1" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                </svg><span class="d-inline-block">Remove</span>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-lg-3 col-sm-4 col-2 mb-3">
                                     <img id="cart-image" src="{{asset('img/'.$test->image)}}" alt="item image">
                                 </div>
-                                <div class="col-3 mt-2">
+                                <div class="col-3 mt-sm-2 ml-sm-0 ml-4 d-sm-block d-none">
                                     <form id="delete-frm" class="" action="{{route('cart.delete', $index)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -45,7 +57,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash mr-1" viewBox="0 0 16 16">
                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                            </svg>Remove
+                                            </svg><span class="d-lg-inline-block d-none">Remove</span>
                                         </button>
                                     </form>
                                 </div>
