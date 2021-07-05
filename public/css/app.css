@@ -10066,10 +10066,16 @@ a h3:hover {
   background-color: #98372C;
 }
 
-#carousel-column {
-  max-width: 264px;
+@media (min-width: 1200px) {
+  #carousel-column {
+    max-width: 264px;
+  }
 }
-
+@media (max-width: 1199px) {
+  #carousel-column {
+    max-width: 290px;
+  }
+}
 .carousel-control-prev, .carousel-control-next {
   width: 5%;
 }
@@ -10082,7 +10088,7 @@ a h3:hover {
 }
 
 #index-category-image {
-  max-height: 130px;
+  height: 130px;
 }
 
 #index-category-name {
@@ -10103,10 +10109,11 @@ a h3:hover {
   color: #6B0A0A;
 }
 
-#item-show-display {
-  margin-bottom: 8rem;
+@media (min-width: 768px) {
+  #item-show-display {
+    margin-bottom: 8rem;
+  }
 }
-
 #item-show-price {
   font-size: 2.3rem;
   font-weight: 500;
@@ -10173,11 +10180,12 @@ a h3:hover {
   font-size: 1.5rem;
 }
 
-#complete-info-btn {
-  position: relative;
-  left: 31rem;
+@media (min-width: 780px) {
+  #complete-info-btn {
+    position: relative;
+    left: 31rem;
+  }
 }
-
 #cart-image {
   width: 125px;
   height: 125px;
@@ -10197,10 +10205,15 @@ a h3:hover {
 
 .categories img {
   height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
+@media (max-width: 400px) {
+  .categories img {
+    height: 130px;
+  }
+}
 .categories img:hover {
   opacity: 0.9;
 }
