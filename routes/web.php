@@ -22,6 +22,8 @@ Auth::routes();
 
 //-- I T E M S
 Route::resource('/item', 'App\Http\Controllers\ItemController');
+Route::get('/sales', [\App\Http\Controllers\ItemController::class, 'sale'])->name('item.sale');
+
 //-- C A T E G O R I E S
 
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);

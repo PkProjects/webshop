@@ -93,4 +93,13 @@ class ItemController extends Controller
     ->with('success','Item added successfully');
     }
     public $reviewed = false;
+
+    public function sale()
+    {
+        $items = Item::all()->where('onSale', '=', 'true');
+        
+        return view ('item.sale',[
+        'items'     => $items,
+        ]);
+    }
 }

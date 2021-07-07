@@ -52,7 +52,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 1,
             'image' => 'piano.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',
+            'onSale' => 'true'        
         ]);
         $piano = \App\Models\Item::factory()->create([
             'name' => "Piano2",
@@ -61,7 +62,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 1,
             'image' => 'piano.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',   
+            'onSale' => 'false'             
         ]);
         $piano = \App\Models\Item::factory()->create([
             'name' => "Piano3",
@@ -70,7 +72,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 1,
             'image' => 'piano.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',   
+            'onSale' => 'false'             
         ]);
         // GUITARS
         $guitar = \App\Models\Item::factory()->create([
@@ -80,7 +83,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'image' => 'guitar.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',   
+            'onSale' => 'false'             
         ]);
         $guitar = \App\Models\Item::factory()->create([
             'name' => "Guitar2",
@@ -89,7 +93,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'image' => 'guitar.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',  
+            'onSale' => 'false'              
         ]);
         $guitar = \App\Models\Item::factory()->create([
             'name' => "Guitar3",
@@ -98,7 +103,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'image' => 'guitar.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',   
+            'onSale' => 'true'             
         ]);
         // PIANO MUSIC
         $pmusic = \App\Models\Item::factory()->create([
@@ -108,7 +114,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 3,
             'image' => 'pmusic.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',   
+            'onSale' => 'false'             
         ]);
         $pmusic = \App\Models\Item::factory()->create([
             'name' => "PMusic2",
@@ -117,7 +124,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 3,
             'image' => 'pmusic.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',    
+            'onSale' => 'false'            
         ]);
         $pmusic = \App\Models\Item::factory()->create([
             'name' => "PMusic3",
@@ -126,7 +134,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 3,
             'image' => 'pmusic.jpg',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',    
+            'onSale' => 'false'            
         ]);
         // GUITAR MUSIC
         $gmusic = \App\Models\Item::factory()->create([
@@ -136,7 +145,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 4,
             'image' => 'gmusic.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',    
+            'onSale' => 'false'            
         ]);
         $gmusic = \App\Models\Item::factory()->create([
             'name' => "GMusic2",
@@ -145,7 +155,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 4,
             'image' => 'gmusic.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',    
+            'onSale' => 'false'            
         ]);
         $gmusic = \App\Models\Item::factory()->create([
             'name' => "GMusic3",
@@ -154,7 +165,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 4,
             'image' => 'gmusic.png',
             'supply' => true,
-            'properties' => 'X here',        
+            'properties' => 'X here',    
+            'onSale' => 'true'            
         ]);
         // PIANO ACCESSORIES
         $paccess = \App\Models\Item::factory()->create([
@@ -164,7 +176,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 5,
             'image' => 'paccessories.jpeg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',    
+            'onSale' => 'false'            
         ]);
         $paccess = \App\Models\Item::factory()->create([
             'name' => "PAccessory2",
@@ -173,7 +186,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 5,
             'image' => 'paccessories.jpeg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',   
+            'onSale' => 'false'             
         ]);
         $paccess = \App\Models\Item::factory()->create([
             'name' => "PAccessory3",
@@ -182,7 +196,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 5,
             'image' => 'paccessories.jpeg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',    
+            'onSale' => 'true'            
         ]);
         // GUITAR ACCESSORIES
         $gaccess = \App\Models\Item::factory()->create([
@@ -192,7 +207,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 6,
             'image' => 'gaccessories.jpg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',   
+            'onSale' => 'false'             
         ]);
         $gaccess = \App\Models\Item::factory()->create([
             'name' => "GAccessory2",
@@ -201,7 +217,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 6,
             'image' => 'gaccessories.jpg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',   
+            'onSale' => 'false'             
         ]);
         $gaccess = \App\Models\Item::factory()->create([
             'name' => "GAccessory3",
@@ -210,7 +227,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => 6,
             'image' => 'gaccessories.jpg',
             'supply' => true,
-            'properties' => 'Properties here',        
+            'properties' => 'Properties here',   
+            'onSale' => 'false'             
         ]);
         //\App\Models\Item::factory(30)->create();
         //\App\Models\Order::factory(10)->create();

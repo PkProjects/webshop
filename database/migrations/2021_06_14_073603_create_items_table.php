@@ -23,6 +23,7 @@ class CreateItemsTable extends Migration
             $table->string('image');
             $table->text('supply');
             $table->text('properties');
+            $table->text('onSale');
 
             $table->timestamps();
         });
