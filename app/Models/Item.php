@@ -29,6 +29,7 @@ class Item extends Model
         'supply',
         'category_id',
         'image',
-        'properties'
+        'properties',
+        'onSale'
     ];
 }

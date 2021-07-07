@@ -33,7 +33,8 @@ class ItemController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'summary' => $request->summary,
-            'supply' => $request->supply
+            'supply' => $request->supply,
+            'onSale' => $request->onSale,
         ]);
 
         return redirect(route('item.show', $item));   
@@ -86,7 +87,8 @@ class ItemController extends Controller
             'category_id'   => $request->category_id,
             'image'         => $imageName,
             'supply'        => $request->supply,
-            'properties'    => $request->properties
+            'properties'    => $request->properties,
+            'onSale'        => $request->onSale,
         ]);
 
     return redirect(route('category.show', $request->category_id))
