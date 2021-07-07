@@ -10163,6 +10163,31 @@ a h3:hover {
   top: 2px;
 }
 
+#item-show-regular-price {
+  font-size: 1.2rem;
+  position: relative;
+  color: #575757;
+}
+#item-show-regular-price:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 42%;
+  right: 0%;
+  border-top: 1.5px solid;
+  border-color: inherit;
+  transform: skewY(10deg);
+  width: 103%;
+}
+
+#item-show-sale-price {
+  position: relative;
+  bottom: 3%;
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: #6B0A0A;
+}
+
 .adjust-qnt-btn {
   padding: 0.3em;
   padding-top: 0.1em;
@@ -10275,7 +10300,7 @@ a#category-index-link:hover {
     font-size: 1.5rem;
   }
 }
-#sale-supply {
+.sale-supply {
   position: relative;
   bottom: 12%;
 }

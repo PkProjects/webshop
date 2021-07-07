@@ -67,6 +67,14 @@
                                     <option value= "0">False</option>
                                 </select>
                             </div>
+                            <div class="control-group col-12 mt-2">
+                                <label for="onSale">Sale</label>
+                                <p>Is the item on sale?</p>
+                                <select id="onSale" name="onSale" class="form-control" required>
+                                    <option value= "false">No</option>
+                                    <option value= "true">Yes</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="row mt-2">
                             <div class="control-group col-12 text-center">

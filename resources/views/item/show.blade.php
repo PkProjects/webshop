@@ -39,8 +39,12 @@
         </div>
 
         <div class="col-md-6">
-            <div class="pr-5" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
-            
+            @if($item->onSale == 'true')
+                <span class="item-price pl-1" id="item-show-regular-price">{{ '€ ' . $item->price . ',-' }}</span>
+                <div class="pr-5 item-price" id="item-show-sale-price">{{ '€ ' . $item->price*0.8 . ',-' }}</div>
+            @else
+                <div class="pr-5" id="item-show-price">{{ '€ ' . $item->price . ',-' }}</div>
+            @endif
         @if($item->supply == '1')         
             <span class="mb-3 ml-1 px-1 instock"> In stock</span>
         @else
