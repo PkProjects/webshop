@@ -6,7 +6,10 @@
 
     <div class="row justify-content-center mb-3" id="header-bg">
 
-        <img class="d-lg-block d-none" src="{{asset("img/header.png")}}" alt="banner">
+        <img class="d-lg-block d-none" src="{{asset("img/header.png")}}" alt="banner" usemap="#mapname">
+        <map name="mapname">
+            <area shape="circle" coords="1000,341,350,275" href="{{ route('item.sale') }}" alt="alttext">
+        </map>
         <h1 class="d-none .d-md-block .d-lg-none">MusicFactory.com</h1>
     </div>
 

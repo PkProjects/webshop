@@ -29,7 +29,7 @@
                         @endforeach
                     </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Sale items</a>
+                    <a class="nav-link" href="{{ route('item.sale') }}">Sale items</a>
                 </li>
                 @guest
                 @else    

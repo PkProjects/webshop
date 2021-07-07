@@ -12,6 +12,9 @@
     </div>
 @endif
 
+    <h1 class="mb-3">Sales</h1>
+    <p class="mb-5 sale-text">Super summer sale! All items on this page 20% off!</p>
+
     <div class="row">
     
         @foreach ($items as $item)
@@ -30,12 +33,15 @@
                 </a> 
                 <div class="row">
                     <div class="col-md-7 col-8">
-                        <div class="item-price">{{ '€ ' . $item->price . ',-' }}</div>
+                        <span class="item-price pl-1" id="item-regular-price">{{ '€ ' . $item->price . ',-' }}</span>
+                        <div class="item-price" id="item-sale-price">{{ '€ ' . $item->price*0.8 . ',-' }}</div>
+                        <div id="sale-supply">
                         @if($item->supply == '1')         
                             <span class="instock px-1"> In stock</span>
                         @else
                             <span class="outstock px-1"> Out of stock</span>
                         @endif
+                        </div>
                     </div>   
                     <div class="col-md-5 col-4 pl-1">
                         <div class="mt-2">
