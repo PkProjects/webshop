@@ -35,7 +35,7 @@
                     <div class="col-md-7 col-8">
                         <span class="item-price pl-1" id="item-regular-price">{{ '€ ' . $item->price . ',-' }}</span>
                         <div class="item-price" id="item-sale-price">{{ '€ ' . $item->price*0.8 . ',-' }}</div>
-                        <div id="sale-supply">
+                        <div class="sale-supply">
                         @if($item->supply == '1')         
                             <span class="instock px-1"> In stock</span>
                         @else
