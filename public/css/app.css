@@ -10243,3 +10243,43 @@ a#category-index-link:hover {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+#item-regular-price {
+  font-size: 0.9rem;
+  position: relative;
+  margin-bottom: 0;
+  color: #575757;
+}
+#item-regular-price:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 42%;
+  right: 0%;
+  border-top: 1.5px solid;
+  border-color: inherit;
+  transform: skewY(10deg);
+  width: 103%;
+}
+
+#item-sale-price {
+  position: relative;
+  bottom: 11%;
+  font-size: 1.7rem;
+}
+
+@media (max-width: 346px) {
+  #item-sale-price {
+    position: relative;
+    bottom: 11%;
+    font-size: 1.5rem;
+  }
+}
+#sale-supply {
+  position: relative;
+  bottom: 12%;
+}
+
+.sale-text {
+  font-size: 1.3rem;
+}
