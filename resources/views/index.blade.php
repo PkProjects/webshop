@@ -45,7 +45,7 @@
 
     <div class="row border border-secondary-3 p-3 mx-1 mb-4">
         @foreach ($_items as $item)
-            @if ($item->id == 2)
+            @if ($item->id == 1)
                 <div class="col-lg-5">
                     <a href="{{ route('item.show', $item) }}">
                         <img class="img-fluid p-4 bg-white" src="{{asset('img/'.$item->image)}}" alt="placeholder">
@@ -63,7 +63,6 @@
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                         </svg> Add to cart
                     </button>
-                
             @endif
         @endforeach
         <h4 class="mb-3">Reviews</h4>
@@ -71,10 +70,9 @@
         data-ride="carousel">
             <div class="carousel-inner">
             
-            @foreach ($_reviews as $review)
-            @if ($review->item_id == 2)
+            @foreach ($_reviews->where('item_id', 1) as $review)
             
-            <div class="carousel-item @if ($loop->odd) active @endif">
+            <div class="carousel-item @if ($loop->first) active @endif">
                 <div class="row">
                     <div class="col-lg-8 px-5 mx-auto">
                         <div class="mb-2">
@@ -131,17 +129,17 @@
                     </div>
                 </div>
             </div>
-            @endif
+            
             @endforeach
         
     </div>
-    <a class="carousel-control-prev" href="#review_carousel" role="button" data-slide="prev">
+    <a class="carousel-control-prev review-control" href="#review_carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="dark" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
           </svg></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#review_carousel" role="button" data-slide="next">
+      <a class="carousel-control-next review-control" href="#review_carousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="dark" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
           </svg></span>
