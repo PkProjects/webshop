@@ -14,7 +14,7 @@
 
     <h1 class="mb-3"> {{ $category->name }}</h1>
 
-    <div class="row mb-4">
+    <div class="row mb-sm-4">
         <div class="control-group col-6 mb-3">
         <form id="select-frm" class="" action="" method="POST">
             @csrf
@@ -37,7 +37,7 @@
     
         @foreach ($items as $item)
 
-            <div class="col-lg-3 col-md-4 col-6 mb-3">
+            <div class="col-lg-3 col-md-4 col-6 mb-3 mx-lg-2">
                 <a href="{{ route('item.show', $item) }}">
                     <div class="row bg-white mb-2 justify-content-center">
                         <img class="img-fluid mb-2 px-3 py-2" id="category-show-image" src="{{asset('img/'.$item->image)}}" alt="image of the product">
